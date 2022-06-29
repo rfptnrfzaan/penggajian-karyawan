@@ -88,6 +88,7 @@
             <label class="col-2 col-form-label">Tanggungan</label>
             <div class="col-10" >
             <select class="form-control" name="tanggungan" >
+              <option value="0" {{ $karyawan->tanggungan == "0" ? 'selected' : '' }}>Tidak ada</option>
               <option value="1" {{ $karyawan->tanggungan == "1" ? 'selected' : '' }}>1</option>
               <option value="2" {{ $karyawan->tanggungan == "2" ? 'selected' : '' }}>2</option>
               <option value="3" {{ $karyawan->tanggungan == "3" ? 'selected' : '' }}>Lebih dari 2</option>
@@ -102,7 +103,7 @@
           </div>
       </div>
       <div class="card-footer text-right">
-        <button class="btn btn-secondary mr-3" type="reset">Kembali</button>
+        <a href="{{ url('karyawan') }}" class="btn btn-secondary mr-3">Kembali</a>
         <button class="btn btn-primary mr-1" type="submit">Simpan</button>
       </div>
       </form>

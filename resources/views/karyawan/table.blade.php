@@ -19,7 +19,7 @@
 <div class="card">
   <div class="card-body">
     <table class="table table-hover">
-      <a href="#" class="btn btn-outline-primary">Primary</a>
+      <a href="{{ url('karyawan/create') }}" class="btn btn-outline-primary">Tambah akun</a>
       <br><br>
       <thead>
 

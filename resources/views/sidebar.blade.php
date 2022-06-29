@@ -8,6 +8,8 @@
     </div>
     <ul class="sidebar-menu">
       <li><a class="nav-link" href="#"><span>Data Karyawan</span></a></li>
+      <li><a class="nav-link " href="#"><span>Form Karyawan</span></a></li>
+      <li><a class="nav-link " href="#"><span>Absensi Karyawan</span></a></li>
     </ul>
   </aside>
 </div>  
