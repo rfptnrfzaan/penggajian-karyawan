@@ -41,11 +41,11 @@
         <div class="navbar-bg"></div>
         @include('header')
         @include('sidebar')
-      
+
         <!-- Main Content -->
         <div class="main-content">
             @yield('content')
-          
+
         </div>
       </div>
 
@@ -59,11 +59,12 @@
   <script src="{{ url('assets/modules/nicescroll/jquery.nicescroll.min.js') }}"></script>
   <script src="{{ url('assets/modules/moment.min.js') }}"></script>
   <script src="{{ url('assets/js/stisla.js') }}"></script>
-  
+
   <!-- JS Libraies -->
 
   <!-- Page Specific JS File -->
-  
+  @yield("script")
+
   <!-- Template JS File -->
   <script src="{{ url('assets/js/scripts.js') }}"></script>
   <script src="{{ url('assets/js/custom.js') }}"></script>

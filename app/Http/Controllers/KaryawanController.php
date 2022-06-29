@@ -87,6 +87,7 @@ class KaryawanController extends Controller
      */
     public function destroy(Karyawan $karyawan)
     {
-        Karyawan::destroy($karyawan);
+        $karyawan->delete();
+        return redirect('karyawan');
     }
 }
