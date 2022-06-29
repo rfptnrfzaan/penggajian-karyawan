@@ -1,99 +1,71 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>Bootstrap Components &rsaquo; Table &mdash; Stisla</title>
+@extends('template')
+@section('name')
+    table
+@endsection
+@section('css')
+<style>
+  .ion-edit:hover {
+    opacity: 0.9;
+    transform: scale(120%);
+  }
+  .ion-trash-a:hover {
+    opacity: 0.9;
+    transform: scale(120%);
+  }
+</style>
+@endsection
 
-  <!-- General CSS Files -->
-  <link rel="stylesheet" href="assets/modules/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/modules/fontawesome/css/all.min.css">
+@section('content')
+<div class="card">
+  <div class="card-body">
+    <table class="table table-hover">
+      <a href="#" class="btn btn-outline-primary">Primary</a>
+      <br><br>
+      <thead>
+          
+        <tr>
+          <th scope="col">No</th>
+          <th scope="col">Nama</th>
+          <th scope="col">NIK</th>
+          <th scope="col">Jabatan</th>
+          <th scope="col" colspan="2">Aksi</th>
+        </tr>
+      </thead>
+      <tbody>
+        @php
+            $n = 1;
+        @endphp
+        @foreach ($karyawan as $data)
+        <tr>
+          <th scope="row">{{ $n++ }}</th>
+          <td>{{ $data->nama }}</td>
+          <td>{{ $data->nik }}</td>
+          <td>{{ $data->jabatan }}</td>
+          <td><a href="{{ route('karyawan.edit', $data->id) }}" class="ion-edit" data-pack="default" data-tags="change, update, write, type, pencil"></a></td>
+          <td><a data-toggle="modal" href="#deleteModal" class="ion-trash-a" data-pack="default" data-tags="delete, remove, dump"></a></td>
+        </tr>
+        @endforeach
+        
 
-  <!-- CSS Libraries -->
-  <link rel="stylesheet" href="assets/modules/ionicons/css/ionicons.min.css">
-  <style>
-    .ion-edit:hover {
-      opacity: 0.9;
-      transform: scale(120%);
-    }
-    .ion-trash-a:hover {
-      opacity: 0.9;
-      transform: scale(120%);
-    }
-  </style>
-
-  <!-- Template CSS -->
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/components.css">
-<!-- Start GA -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-94034622-3"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-94034622-3');
-</script>
-<!-- /END GA --></head>
-
-<body>
-    <div class="card">
-        <div class="card-body">
-          <table class="table table-hover">
-            <a href="#" class="btn btn-outline-primary">Primary</a>
-            <br><br>
-            <thead>
-                
-              <tr>
-                <th scope="col">No</th>
-                <th scope="col">Nama</th>
-                <th scope="col">NIK</th>
-                <th scope="col">Jabatan</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td class="ion-edit" data-pack="default" data-tags="change, update, write, type, pencil"></td>
-                <td class="ion-trash-a" data-pack="default" data-tags="delete, remove, dump"></td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                <td class="ion-edit" data-pack="default" data-tags="change, update, write, type, pencil"></td>
-                <td class="ion-trash-a" data-pack="default" data-tags="delete, remove, dump"></td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-                <td class="ion-edit" data-pack="default" data-tags="change, update, write, type, pencil"></td>
-                <td class="ion-trash-a" data-pack="default" data-tags="delete, remove, dump"></td>
-              </tr>
-            </tbody>
-          </table>
-
-<!-- General JS Scripts -->
-  <script src="assets/modules/jquery.min.js"></script>
-  <script src="assets/modules/popper.js"></script>
-  <script src="assets/modules/tooltip.js"></script>
-  <script src="assets/modules/bootstrap/js/bootstrap.min.js"></script>
-  <script src="assets/modules/nicescroll/jquery.nicescroll.min.js"></script>
-  <script src="assets/modules/moment.min.js"></script>
-  <script src="assets/js/stisla.js"></script>
-  
-<!-- JS Libraies -->
-
-<!-- Page Specific JS File -->
-  
-<!-- Template JS File -->
-  <script src="assets/js/scripts.js"></script>
-  <script src="assets/js/custom.js"></script>
-</body>
-</html>
+      </tbody>
+    </table>
+    <div class="modal fade" tabindex="-1" role="dialog" id="deleteModal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Hapus data karyawan</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Apakah anda yakin untuk menghapus data ini?</p>
+          </div>
+          <div class="modal-footer bg-whitesmoke br">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Tidak</button>
+            <button type="button" class="btn btn-primary">Iya</button>
+          </div>
+        </div>
+      </div>
+    </div>
+@endsection
