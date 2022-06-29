@@ -1,5 +1,5 @@
 @extends('template')
-@section('name')
+@section('title')
     table
 @endsection
 @section('css')

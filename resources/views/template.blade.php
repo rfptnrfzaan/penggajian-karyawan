@@ -35,7 +35,7 @@
 </script>
 <!-- /END GA --></head>
 
-<body>
+<body class="sidebar-mini">
   <div id="app">
     <div class="main-wrapper main-wrapper-1">
         <div class="navbar-bg"></div>
