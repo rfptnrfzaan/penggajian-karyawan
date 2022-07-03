@@ -17,9 +17,10 @@
   <link rel="stylesheet" href="{{ url('assets/css/components.css') }}">
   <style>
     .sidebar-menu li a :hover{
-      background-color: blue;
-      color: white;
+      background-color: black;
       padding: 10px;
+      opacity: 0;
+      transform: scale(120%);
     }
   </style>
   @yield('css')
