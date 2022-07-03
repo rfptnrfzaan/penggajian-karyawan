@@ -16,13 +16,17 @@
 @endsection
 
 @section('content')
+<section class="section">
+  <div class="section-header">
+    <h1>Data Karyawan</h1>
+  </div>
+</section>
 <div class="card">
   <div class="card-body">
     <table class="table table-hover">
       <a href="{{ url('karyawan/create') }}" class="btn btn-outline-primary">Tambah akun</a>
       <br><br>
       <thead>
-
         <tr>
           <th scope="col">No</th>
           <th scope="col">Nama</th>

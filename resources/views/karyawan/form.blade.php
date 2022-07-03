@@ -78,8 +78,6 @@
             <select class="form-control" name="status_pernikahan">
               <option>Menikah</option>
               <option>Belum Menikah</option>
-              <option>Cerai Hidup</option>
-              <option>Cerai Mati</option>
             </select>
             </div>
           </div>
@@ -87,10 +85,10 @@
             <label class="col-2 col-form-label">Tanggungan</label>
             <div class="col-10" >
             <select class="form-control" name="tanggungan">
-              <option value="0">Tidak ada</option>
+              <option value="0">0</option>
               <option value="1">1</option>
               <option value="2">2</option>
-              <option value="3">lebih dari 2</option>
+              <option value="3">3</option>
             </select>
             </div>
           </div>

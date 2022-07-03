@@ -24,5 +24,15 @@ Route::middleware(['auth'])->group(function () {
 });
 
 
+Route::get('/absensi', function () {
+    return view('karyawan/absensi');
+});
 
+Route::get('/gaji', function () {
+    return view('karyawan/data_gaji');
+});
+
+Route::get('/pph', function () {
+    return view('karyawan/pph');
+});
 ?>
