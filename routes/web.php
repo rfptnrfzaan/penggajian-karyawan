@@ -3,16 +3,26 @@
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
-Route::get('/', [LoginController::class, 'index']);
-Route::post('login', [LoginController::class, 'login']);
-
-Route::get('/welcome', function () {
-    return view('welcome');
-    
+Route::get('/', function () {
+    if(Auth::check()){
+        return redirect('/dashboard');
+    }
+    return redirect('/login');
 });
 
-Route::resource('karyawan', KaryawanController::class);
+Route::get('login', [LoginController::class, 'index'])->name('login');
+Route::post('login', [LoginController::class, 'login']);
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('welcome');
+    });
+
+    Route::resource('karyawan', KaryawanController::class);
+});
+
 
 
 ?>

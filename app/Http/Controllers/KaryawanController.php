@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Karyawan;
 use App\Http\Requests\StoreKaryawanRequest;
 use App\Http\Requests\UpdateKaryawanRequest;
+use App\Libraries\TaxCalculator;
 
 class KaryawanController extends Controller
 {
@@ -51,7 +52,9 @@ class KaryawanController extends Controller
      */
     public function show(Karyawan $karyawan)
     {
-        //
+        $ptkp = TaxCalculator::CalculatePTKP($karyawan);
+
+        dd(TaxCalculator::CalculatePKP(53000000, $ptkp));
     }
 
     /**
@@ -91,3 +94,4 @@ class KaryawanController extends Controller
         return redirect('karyawan');
     }
 }
+

@@ -10,7 +10,7 @@ class LoginController extends Controller
     public function index (){
         return view('login');
     }
-    
+
     public function login(Request $request){
         $input = $request->validate([
             'email' => ['required', 'email'],
@@ -18,7 +18,7 @@ class LoginController extends Controller
         ]);
 
         if(Auth::attempt($input)){
-            return redirect('welcome');
+            return redirect('dashboard');
         }else{
             return redirect('/');
         }
