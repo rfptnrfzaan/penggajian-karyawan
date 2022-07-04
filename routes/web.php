@@ -39,4 +39,8 @@ Route::get('/pph', function () {
 Route::get('/data_absensi', function () {
     return view('karyawan/data_absensi');
 });
+
+Route::get('/data_gaji', function () {
+    return view('karyawan/data_gaji');
+});
 ?>

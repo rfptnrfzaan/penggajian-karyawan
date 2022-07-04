@@ -9,7 +9,7 @@
       <div class="section-body">
         <div class="card">
           <div class="card-header">
-            <h4>Form karyawan</h4>
+            <h4>Absensi</h4>
           </div>
   
           <form method="POST" action="">
