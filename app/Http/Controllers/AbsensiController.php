@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Absensi;
 use Illuminate\Http\Request;
 use App\Models\Karyawan;
 
@@ -36,8 +37,11 @@ class AbsensiController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $absensi = new Absensi();
+        $absensi->fill($request->all());
+        $absensi->save();
+        return redirect('absensi');
+     }
 
     /**
      * Display the specified resource.

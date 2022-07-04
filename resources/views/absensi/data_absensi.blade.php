@@ -12,17 +12,17 @@
             <h4>Absensi</h4>
           </div>
   
-          <form method="POST" action="{{ url('') }}">
+          <form method="POST" action="{{ url('absensi') }}">
             @csrf
         <div class="card-body">
             <div class="form-group">
                 <label>Bulan/Tanggal/Tahun</label>
-                <input type="date" class="form-control" style="width: 20%;">
+                <input type="date" name="tanggal" class="form-control" style="width: 20%;">
             </div>
             <div class="form-group row">
               <label class="col-2 col-form-label">Karyawan</label>
               <div class="col-10">
-                <select class="form-control" name="kehadiran">
+                <select class="form-control" name="id_karyawan">
                   @foreach ($karyawan as $data)
                   <option value="{{ $data->id }}">{{ $data->nik }} - {{ $data->nama }}</option>
                   @endforeach
@@ -32,7 +32,7 @@
             <div class="form-group row">
                 <label class="col-2 col-form-label">Kehadiran</label>
                 <div class="col-10" >
-                <select class="form-control" name="kehadiran">
+                <select class="form-control" name="masuk">
                   <option>Tidak masuk</option>
                   <option>Masuk</option>
                   <option>Izin</option>

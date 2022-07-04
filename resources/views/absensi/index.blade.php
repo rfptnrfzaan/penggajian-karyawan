@@ -1,12 +1,12 @@
 @extends('template')
 @section('title')
-   Data Rekapan Absensi
+    Data Absensi
 @endsection
 
 @section('content')
 <section class="section">
     <div class="section-header">
-      <h1>Data Rekapan Absensi</h1>
+      <h1>Data Absensi</h1>
     </div>
 </section>
 
@@ -14,10 +14,10 @@
     <div class="card-body">
       <table class="table table-hover">
         <thead>
-          <div class="form-group">
-            <label>Bulan/Tahun</label>
-            <input type="month" class= "form-control" style="width: 20%;"> 
-          </div>
+            <div class="form-group">
+                <label>Bulan/Tanggal/Tahun</label>
+                <input type="date" name="tanggal" class="form-control" style="width: 20%;">
+            </div>
         <br>
         <a href="#" class="btn btn-outline-primary">Tampilkan Data</a>
         <a href="{{ url('absensi/create') }}" class="btn btn-outline-primary" style = "position:relative; left:10px;">Input Kehadiran</a>
