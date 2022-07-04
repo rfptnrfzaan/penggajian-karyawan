@@ -19,7 +19,7 @@
                 <input type="date" name="tanggal" class="form-control" style="width: 20%;">
             </div>
         <br>
-        <a href="#" class="btn btn-outline-primary">Tampilkan Data</a>
+        <a href="{{ url('absensi') }}" class="btn btn-outline-primary">Tampilkan Data</a>
         <a href="{{ url('absensi/create') }}" class="btn btn-outline-primary" style = "position:relative; left:10px;">Input Kehadiran</a>
             <br><br>
           <tr>
@@ -27,6 +27,7 @@
             <th scope="col" colspan="3">NIK</th>
             <th scope="col" colspan="2">Nama</th>
             <th scope="col" colspan="1">Masuk</th>
+            <th scope="col">Keterangan</th>
             <th scope="col" colspan="1">Lembur</th>
             <th scope="col" colspan="2">Gaji Lembur</th>
             <th scope="col" colspan="2">SPJ</th>
