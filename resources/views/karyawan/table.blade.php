@@ -4,7 +4,7 @@
 @endsection
 
 @section('css')
-<link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css">
 <style>
   .ion-edit:hover {
     opacity: 0.9;
@@ -27,6 +27,7 @@
   <div class="card-body">
     <a href="{{ url('karyawan/create') }}" class="btn btn-outline-primary">Tambah akun</a>
     <br><br>
+
     <table id="table_data" class="display table table-hover">
       <thead>
         <tr>
@@ -40,7 +41,8 @@
           <th scope="col">Status</th>
           <th scope="col">Tanggungan</th>
           <th scope="col">Gaji Pokok</th>
-          <th scope="col" colspan="2">Aksi</th>
+          <th scope="col">Aksi</th>
+          <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
@@ -49,7 +51,7 @@
         @endphp
         @foreach ($karyawan as $data)
         <tr>
-          <th scope="row">{{ $n++ }}</th>
+          <td>{{ $n++ }}</td>
           <td>{{ $data->nama }}</td>
           <td>{{ $data->nik }}</td>
           <td>{{ $data->npwp }}</td>
@@ -67,6 +69,7 @@
 
       </tbody>
     </table>
+
     <div class="modal fade" tabindex="-1" role="dialog" id="deleteModal">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -94,14 +97,16 @@
 
 @section('script')
 <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script>
 
 <script>
 $(document).ready( function () {
     $('#table_data').DataTable();
+
     $('#deleteModal').on('show.bs.modal', function (e) {
         const link = $(e.relatedTarget);
         const id = link.data('id');
-    
+
         $("#formDelete").attr('action', `{{ url('karyawan/${id}')}}`);
     });
 });
