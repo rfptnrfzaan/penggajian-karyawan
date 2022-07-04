@@ -29,10 +29,14 @@ Route::get('/absensi', function () {
 });
 
 Route::get('/gaji', function () {
-    return view('karyawan/data_gaji');
+    return view('karyawan/gaji');
 });
 
 Route::get('/pph', function () {
     return view('karyawan/pph');
+});
+
+Route::get('/data_absensi', function () {
+    return view('karyawan/data_absensi');
 });
 ?>

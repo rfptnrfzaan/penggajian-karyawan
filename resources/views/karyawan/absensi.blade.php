@@ -14,7 +14,10 @@
     <div class="card-body">
       <table class="table table-hover">
         <thead>
-        <input type="month" class="form-control" style="width: 20%;"> 
+          <div class="form-group">
+            <label>Bulan/Tahun</label>
+            <input type="month" class= "form-control" style="width: 20%;"> 
+          </div>
         <br>
         <a href="#" class="btn btn-outline-primary">Tampilkan Data</a>
         <a href="#" class="btn btn-outline-primary" style = "position:relative; left:10px;">Input Kehadiran</a>
