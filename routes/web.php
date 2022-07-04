@@ -25,21 +25,12 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('absensi', AbsensiController::class);
 });
 
-
-Route::get('/absensi', function () {
-    return view('karyawan/absensi');
-});
-
 Route::get('/gaji', function () {
     return view('karyawan/gaji');
 });
 
 Route::get('/pph', function () {
     return view('karyawan/pph');
-});
-
-Route::get('/data_absensi', function () {
-    
 });
 
 Route::get('/data_gaji', function () {

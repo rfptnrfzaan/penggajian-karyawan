@@ -20,7 +20,7 @@
           </div>
         <br>
         <a href="#" class="btn btn-outline-primary">Tampilkan Data</a>
-        <a href="#" class="btn btn-outline-primary" style = "position:relative; left:10px;">Input Kehadiran</a>
+        <a href="{{ url('') }}" class="btn btn-outline-primary" style = "position:relative; left:10px;">Input Kehadiran</a>
             <br><br>
           <tr>
             <th scope="col" colspan="1">No</th>

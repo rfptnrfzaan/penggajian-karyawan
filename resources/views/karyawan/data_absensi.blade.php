@@ -23,8 +23,9 @@
               <label class="col-2 col-form-label">Karyawan</label>
               <div class="col-10">
                 <select class="form-control" name="kehadiran">
-                  <option value="0">#</option>
-                  <option value="1">#</option>
+                  @foreach ($karyawan as $data)
+                  <option value="{{ $data->id }}">{{ $data->nik }} - {{ $data->nama }}</option>
+                  @endforeach
                 </select>
               </div>
             </div>
@@ -49,9 +50,10 @@
               <label class="col-2 col-form-label">Lembur</label>
               <div class="col-10" >
               <select class="form-control" name="lembur">
-                <option value="0">Di hari kerja</option>
-                <option value="1">Di hari libur</option>
-                <option value="2">Menginap di kantor</option>
+                <option value="0">Tidak Lembur</option>
+                <option value="1">Di hari kerja</option>
+                <option value="2">Di hari libur</option>
+                <option value="3">Menginap di kantor</option>
               </select>
               </div>
             </div>
@@ -69,7 +71,7 @@
             </div>
         </div>
         <div class="card-footer text-right">
-          <a href="" class="btn btn-secondary mr-3" type="reset">Kembali</a>
+          <a href="{{ url('absensi') }}" class="btn btn-secondary mr-3" type="reset">Kembali</a>
           <button class="btn btn-primary mr-1" type="submit">Simpan</button>
         </div>
         </form>

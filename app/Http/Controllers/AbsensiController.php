@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Karyawan;
 
 class AbsensiController extends Controller
 {
@@ -13,7 +14,7 @@ class AbsensiController extends Controller
      */
     public function index()
     {
-        //
+        return view('karyawan/absensi');
     }
 
     /**
@@ -23,7 +24,8 @@ class AbsensiController extends Controller
      */
     public function create()
     {
-        return view('karyawan/data_absensi');
+        $karyawan = Karyawan::all();
+        return view('karyawan/data_absensi', compact('karyawan'));
     }
 
     /**
