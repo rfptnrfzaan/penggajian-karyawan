@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AbsensiController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
@@ -21,6 +22,7 @@ Route::middleware(['auth'])->group(function () {
     });
 
     Route::resource('karyawan', KaryawanController::class);
+    Route::resource('absensi', AbsensiController::class);
 });
 
 
@@ -37,7 +39,7 @@ Route::get('/pph', function () {
 });
 
 Route::get('/data_absensi', function () {
-    return view('karyawan/data_absensi');
+    
 });
 
 Route::get('/data_gaji', function () {

@@ -20,17 +20,14 @@
                 <input type="date" class="form-control" style="width: 20%;">
             </div>
             <div class="form-group row">
-              <label class="col-2 col-form-label">NIK</label>
+              <label class="col-2 col-form-label">Karyawan</label>
               <div class="col-10">
-              <input type="text" name="nik" class="form-control" readonly="">
+                <select class="form-control" name="kehadiran">
+                  <option value="0">#</option>
+                  <option value="1">#</option>
+                </select>
               </div>
             </div>
-            <div class="form-group row">
-                <label class="col-2 col-form-label">Nama</label>
-                <div class="col-10">
-                <input type="text" name="nama" class="form-control" readonly="">
-                </div>
-              </div>
             <div class="form-group row">
                 <label class="col-2 col-form-label">Kehadiran</label>
                 <div class="col-10" >
