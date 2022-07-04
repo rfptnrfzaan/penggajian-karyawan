@@ -12,6 +12,7 @@
 
   <!-- CSS Libraries -->
   <link rel="stylesheet" href="{{ url('assets/modules/ionicons/css/ionicons.min.css') }}">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css">
 
   <!-- Template CSS -->
   <link rel="stylesheet" href="{{ url('assets/css/style.css') }}">
@@ -61,6 +62,23 @@
   <script src="{{ url('assets/js/stisla.js') }}"></script>
 
   <!-- JS Libraies -->
+  @section('script')
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script>
+
+<script>
+$(document).ready( function () {
+    $('#table_data').DataTable();
+
+    $('#deleteModal').on('show.bs.modal', function (e) {
+        const link = $(e.relatedTarget);
+        const id = link.data('id');
+
+        $("#formDelete").attr('action', `{{ url('karyawan/${id}')}}`);
+    });
+});
+</script>
+@endsection
 
   <!-- Page Specific JS File -->
   @yield("script")

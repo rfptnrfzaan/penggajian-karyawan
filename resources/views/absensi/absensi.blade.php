@@ -12,7 +12,7 @@
 
 <div class="card">
     <div class="card-body">
-      <table class="table table-hover">
+      <table id="table_data" class="table table-hover">
         <thead>
           <div class="form-group">
             <label>Bulan/Tahun</label>
