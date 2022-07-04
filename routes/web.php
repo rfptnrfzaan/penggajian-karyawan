@@ -26,14 +26,14 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::get('/gaji', function () {
-    return view('karyawan/gaji');
+    return view('gaji/gaji');
 });
 
 Route::get('/pph', function () {
-    return view('karyawan/pph');
+    return view('perhitungan/pph');
 });
 
 Route::get('/data_gaji', function () {
-    return view('karyawan/data_gaji');
+    return view('gaji/data_gaji');
 });
 ?>

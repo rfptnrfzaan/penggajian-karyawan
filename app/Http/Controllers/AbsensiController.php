@@ -14,7 +14,7 @@ class AbsensiController extends Controller
      */
     public function index()
     {
-        return view('karyawan/absensi');
+        return view('absensi/absensi');
     }
 
     /**
@@ -25,7 +25,7 @@ class AbsensiController extends Controller
     public function create()
     {
         $karyawan = Karyawan::all();
-        return view('karyawan/data_absensi', compact('karyawan'));
+        return view('absensi/data_absensi', compact('karyawan'));
     }
 
     /**

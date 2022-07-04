@@ -12,7 +12,7 @@
             <h4>Absensi</h4>
           </div>
   
-          <form method="POST" action="">
+          <form method="POST" action="{{ url('') }}">
             @csrf
         <div class="card-body">
             <div class="form-group">
@@ -33,10 +33,10 @@
                 <label class="col-2 col-form-label">Kehadiran</label>
                 <div class="col-10" >
                 <select class="form-control" name="kehadiran">
-                  <option value="0">Tidak masuk</option>
-                  <option value="1">Masuk</option>
-                  <option value="2">Izin</option>
-                  <option value="3">Sakit</option>
+                  <option>Tidak masuk</option>
+                  <option>Masuk</option>
+                  <option>Izin</option>
+                  <option>Sakit</option>
                 </select>
                 </div>
             </div>
@@ -50,10 +50,10 @@
               <label class="col-2 col-form-label">Lembur</label>
               <div class="col-10" >
               <select class="form-control" name="lembur">
-                <option value="0">Tidak Lembur</option>
-                <option value="1">Di hari kerja</option>
-                <option value="2">Di hari libur</option>
-                <option value="3">Menginap di kantor</option>
+                <option>Tidak Lembur</option>
+                <option>Di hari kerja</option>
+                <option>Di hari libur</option>
+                <option>Menginap di kantor</option>
               </select>
               </div>
             </div>

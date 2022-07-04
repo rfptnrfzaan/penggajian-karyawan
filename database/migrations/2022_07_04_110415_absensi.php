@@ -15,12 +15,16 @@ return new class extends Migration
     {
         Schema::create('absensi', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_karyawan');
             $table->string('masuk');
             $table->text('lembur');
-            $table->string('gaji_lembur');
-            $table->string('spj');
+            $table->integer('gaji_lembur');
+            $table->integer('spj');
             $table->timestamps();
+
+            $table->foreignId('id_karyawan');
+            $table->foreign('id_karyawan')->references('id')->on('karyawan')
+                  ->cascadeOnDelete()
+                  ->cascadeOnUpdate();
         });
     }
 
