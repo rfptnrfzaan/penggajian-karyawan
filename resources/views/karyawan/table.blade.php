@@ -1,8 +1,10 @@
 @extends('template')
 @section('title')
-    table
+    Data Karyawan
 @endsection
+
 @section('css')
+<link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
 <style>
   .ion-edit:hover {
     opacity: 0.9;
@@ -23,15 +25,21 @@
 </section>
 <div class="card">
   <div class="card-body">
-    <table class="table table-hover">
-      <a href="{{ url('karyawan/create') }}" class="btn btn-outline-primary">Tambah akun</a>
-      <br><br>
+    <a href="{{ url('karyawan/create') }}" class="btn btn-outline-primary">Tambah akun</a>
+    <br><br>
+    <table id="table_data" class="display table table-hover">
       <thead>
         <tr>
           <th scope="col">No</th>
-          <th scope="col">Nama</th>
           <th scope="col">NIK</th>
+          <th scope="col">Nama</th>
+          <th scope="col">NPWP</th>
+          <th scope="col">Alamat</th>
           <th scope="col">Jabatan</th>
+          <th scope="col">Jenis Kelamin</th>
+          <th scope="col">Status</th>
+          <th scope="col">Tanggungan</th>
+          <th scope="col">Gaji Pokok</th>
           <th scope="col" colspan="2">Aksi</th>
         </tr>
       </thead>
@@ -44,7 +52,13 @@
           <th scope="row">{{ $n++ }}</th>
           <td>{{ $data->nama }}</td>
           <td>{{ $data->nik }}</td>
+          <td>{{ $data->npwp }}</td>
+          <td>{{ $data->alamat }}</td>
           <td>{{ $data->jabatan }}</td>
+          <td>{{ $data->jenis_kelamin }}</td>
+          <td>{{ $data->status_pernikahan }}</td>
+          <td>{{ $data->tanggungan }}</td>
+          <td>{{ $data->gaji_pokok }}</td>
           <td><a href="{{ route('karyawan.edit', $data->id) }}" class="ion-edit" data-pack="default" data-tags="change, update, write, type, pencil"></a></td>
           <td><a data-toggle="modal" href="#deleteModal" data-id="{{ $data->id }}" class="ion-trash-a" data-pack="default" data-tags="delete, remove, dump"></a></td>
         </tr>
@@ -79,14 +93,19 @@
 @endsection
 
 @section('script')
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+
 <script>
+$(document).ready( function () {
+    $('#table_data').DataTable();
+    $('#deleteModal').on('show.bs.modal', function (e) {
+        const link = $(e.relatedTarget);
+        const id = link.data('id');
+    
+        $("#formDelete").attr('action', `{{ url('karyawan/${id}')}}`);
+    });
+});
 
-$('#deleteModal').on('show.bs.modal', function (e) {
-    const link = $(e.relatedTarget);
-    const id = link.data('id');
-
-    $("#formDelete").attr('action', `{{ url('karyawan/${id}')}}`);
-})
 
 </script>
 @endsection
