@@ -22,13 +22,12 @@ class AbsensiController extends Controller
     public function lihat(Request $request)
     {
         $date = Carbon::parse($request->bulan);
-        dd($date->month);
-        return "Lihat";
-    }
 
-    public function rekap(Request $request)
-    {
-        return "Rekap";
+        $karyawan = Karyawan::all();
+        $bulan = $date->month;
+        $tahun = $date->year;
+
+        return view('absensi.lihat', compact('karyawan', 'bulan', 'tahun'));
     }
 
     /**
@@ -39,7 +38,7 @@ class AbsensiController extends Controller
     public function create()
     {
         $karyawan = Karyawan::all();
-        return view('absensi/data_absensi', compact('karyawan'));
+        return view('absensi.table', compact('karyawan'));
     }
 
     /**
@@ -50,9 +49,20 @@ class AbsensiController extends Controller
      */
     public function store(Request $request)
     {
-        $absensi = new Absensi();
-        $absensi->fill($request->all());
-        $absensi->save();
+        $tanggal = $request->tanggal;
+        foreach ($request->form as $id => $value) {
+            Absensi::updateOrCreate(
+                ['tanggal' => $tanggal, 'id_karyawan' => $id],
+                [
+                    'masuk' => $value['masuk'],
+                    'lembur' => $value['lembur'],
+                    'gaji_lembur' => $value['gaji_lembur'],
+                    'spj' => $value['spj'],
+                    'keterangan' => $value['keterangan']
+                ]
+            );
+        }
+
         return redirect('absensi');
      }
 
@@ -64,7 +74,7 @@ class AbsensiController extends Controller
      */
     public function show($id)
     {
-        
+
     }
 
     /**

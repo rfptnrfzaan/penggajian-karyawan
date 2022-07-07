@@ -11,15 +11,27 @@ class GajiController extends Controller
 {
     public function index()
     {
-        $karyawan = Karyawan::all();
+       
         return view('gaji/gaji');
     }
 
-    public function detail(Request $request){
-        $karyawan = Karyawan::find($request->id_karyawan);
+    public function lihat(Request $request)
+    {
         $date = Carbon::parse($request->bulan);
 
-        $gaji = GajiCalculator::CalculateGaji($karyawan, $date->year, $date->month);
-        dd($gaji);
+        $karyawan = Karyawan::all();
+        $bulan = $date->month;
+        $tahun = $date->year;
+
+        return view('gaji/lihat', compact('karyawan', 'bulan', 'tahun'));
+    }
+
+
+    public function detail($tahun, $bulan, $id_karyawan){
+        $karyawan = Karyawan::find($id_karyawan);
+
+        $gaji = GajiCalculator::CalculateGaji($karyawan, $tahun, $bulan);
+        return view('gaji/data_gaji', compact('karyawan', 'tahun', 'bulan', 'gaji' ));
+
     }
 }

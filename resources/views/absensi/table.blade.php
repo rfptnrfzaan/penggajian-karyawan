@@ -10,47 +10,69 @@
     </div>
 </section>
 
+<form action="{{url('absensi')}}" method="post">
+@csrf
 <div class="card">
     <div class="card-body">
-      <table id="table_data" class="table table-hover">
-        <thead>
+      <div class="row">
+        <div class="col-lg-10">
             <div class="form-group">
-                <label>Bulan/Tanggal/Tahun</label>
-                <input type="date" name="tanggal" class="form-control" style="width: 20%;">
+                <label>Tanggal</label>
+                <input required type="date" name="tanggal" class="form-control" style="width: 20%;">
             </div>
-        <br>
-        <a href="{{ url('absensi') }}" class="btn btn-outline-primary">Tampilkan Data</a>
-        <a href="{{ url('absensi/create') }}" class="btn btn-outline-primary" style = "position:relative; left:10px;">Input Kehadiran</a>
-            <br><br>
-          <tr>
-            <th scope="col">No</th>
-            <th scope="col">NIK</th>
-            <th scope="col">Nama</th>
-            <th scope="col">Masuk</th>
-            <th scope="col">Keterangan</th>
-            <th scope="col">Lembur</th>
-            <th scope="col">Gaji Lembur</th>
-            <th scope="col">SPJ</th>
-            <th scope="col">Aksi</th>
-          </tr>
-        </thead>
-        <tbody>
+        </div>
+        <div class="col">
+            <button class="btn btn-primary mr-1" type="submit">Simpan</button>
+        </div>
+      </div>
+      <div class="row">
+        <table id="data" class="table table-hover table-responsive">
+            <thead>
+              <tr>
+                <th scope="col">No</th>
+                <th scope="col">NIK</th>
+                <th scope="col">Nama</th>
+                <th scope="col">Kehadiran</th>
+                <th scope="col">Keterangan</th>
+                <th scope="col">Lembur</th>
+                <th scope="col">Gaji Lembur</th>
+                <th scope="col">SPJ</th>
+              </tr>
+            </thead>
+            <tbody>
             @php
-            $n = 1;
-        @endphp
-        @foreach ($absensi as $data)
-        <tr>
-          <td>{{ $n++ }}</td>
-          <td>{{ $data->karyawan->nik }}</td>
-          <td>{{ $data->karyawan->nama }}</td>
-          <td>{{ $data->masuk }}</td>
-          <td>{{ $data->keterangan }}</td>
-          <td>{{ $data->lembur }}</td>
-          <td>{{ $data->gaji_lembur }}</td>
-          <td>{{ $data->spj }}</td>
-          <td><a href="{{ route('absensi.edit', $data->id) }}" class="ion-edit" data-pack="default" data-tags="change, update, write, type, pencil"></a></td>
-        </tr>
-        @endforeach
-        </tbody>
-      </table>
+                $n = 1;
+            @endphp
+            @foreach ($karyawan as $data)
+            <tr>
+              <td>{{ $n++ }}</td>
+              <td>{{ $data->nik }}</td>
+              <td>{{ $data->nama }}</td>
+              <td>
+                <select class="form-control" name="form[{{$data->id}}][masuk]" id="">
+                  <option>Masuk</option>
+                  <option>Tidak masuk</option>
+                  <option>Izin</option>
+                  <option>Sakit</option>
+                </select>
+              </td>
+              <td><input class="form-control" type="text" name="form[{{$data->id}}][keterangan]" value="-" /></td>
+              <td>
+                <select class="form-control" name="form[{{$data->id}}][lembur]" id="">
+                  <option>Tidak Lembur</option>
+                  <option>Di hari kerja</option>
+                  <option>Di hari libur</option>
+                  <option>Menginap di kantor</option>
+                </select>
+              </td>
+              <td><input class="form-control" type="text" name="form[{{$data->id}}][gaji_lembur]" id="" value="0" /></td>
+              <td><input class="form-control" type="text" name="form[{{$data->id}}][spj]" id="" value="0" /></td>
+            </tr>
+            @endforeach
+            </tbody>
+        </table>
+      </div>
+    </div>
+</div>
+</form>
 @endsection

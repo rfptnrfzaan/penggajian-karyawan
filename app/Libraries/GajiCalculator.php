@@ -17,6 +17,7 @@ class GajiCalculator {
 
         $jkk = $gaji * 0.24 / 100;
         $jkm = $gaji * 0.3 / 100;
+        $jaminan = $jkk + $jkm;
 
         $bruto = $gaji + $makan + $transport + $lembur + $spj + $jkk + $jkm;
 
@@ -32,8 +33,10 @@ class GajiCalculator {
             "spj" => $spj,
             "jkk" => $jkk,
             "jkm" => $jkm,
+            "jaminan" => $jaminan,
             "bruto" => $bruto,
             "jht" => $jht,
+            "potongan" => $jht,
             "netto" => $netto
         ];
     }

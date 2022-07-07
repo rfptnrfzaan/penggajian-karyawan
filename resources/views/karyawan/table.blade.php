@@ -25,7 +25,7 @@
 </section>
 <div class="card">
   <div class="card-body">
-    <a href="{{ url('karyawan/create') }}" class="btn btn-outline-primary">Tambah akun</a>
+    <a href="{{ url('karyawan/create') }}" class="btn btn-outline-primary">Tambah Karyawan</a>
     <br><br>
 
     <table id="table_data" class="display table table-hover">
@@ -93,8 +93,6 @@
         </div>
       </div>
     </div>
-  </div>
-</div>
 @endsection
 
 @section('script')
@@ -112,5 +110,7 @@ $(document).ready( function () {
         $("#formDelete").attr('action', `{{ url('karyawan/${id}')}}`);
     });
 });
+
+
 </script>
 @endsection
