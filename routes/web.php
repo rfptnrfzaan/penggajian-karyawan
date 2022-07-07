@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AbsensiController;
+use App\Http\Controllers\GajiController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
@@ -25,10 +26,8 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('absensi', AbsensiController::class);
     Route::post("absensi/lihat",[AbsensiController::class, 'lihat']);
     Route::post("absensi/rekap",[AbsensiController::class, 'rekap']);
-});
 
-Route::get('/gaji', function () {
-    return view('gaji/gaji');
+    Route::get("gaji",[GajiController::class, 'index']);
 });
 
 Route::get('/pph', function () {

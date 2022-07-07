@@ -13,11 +13,11 @@
 <div class="card">
     <form action="{{ url("absensi/lihat"); }}" method="post">
     <div class="card-body">
-            @csrf
-            <div class="form-group">
-              <label>Bulan/Tahun</label>
-              <input type="month" class="form-control" style="width: 20%;" name="bulan">
-            </div>
+        @csrf
+        <div class="form-group">
+            <label>Bulan/Tahun</label>
+            <input type="month" class="form-control" style="width: 20%;" name="bulan">
+        </div>
     <br>
     <button type="submit" class="btn btn-outline-primary">Tampilkan Data</button>
     </form>
@@ -26,16 +26,6 @@
     <br><br>
       <table id="table_data" class="table table-hover">
         <thead>
-<<<<<<< HEAD
-          <div class="form-group">
-            <label>Bulan/Tahun</label>
-            <input type="month" class= "form-control" style="width: 20%;"> 
-          </div>
-        <br>
-        <a href="#" class="btn btn-outline-primary">Tampilkan Data</a>
-            <br><br>
-=======
->>>>>>> 74cc81e5957645525f3097c01cc06dbf05ac2197
           <tr>
             <th scope="col" colspan="1">No</th>
             <th scope="col" colspan="3">NIK</th>
