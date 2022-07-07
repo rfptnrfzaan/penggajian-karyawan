@@ -18,6 +18,16 @@ class AbsensiController extends Controller
         return view('absensi/absensi');
     }
 
+    public function lihat()
+    {
+        return "Lihat";
+    }
+
+    public function rekap()
+    {
+        return "Rekap";
+    }
+
     /**
      * Show the form for creating a new resource.
      *
