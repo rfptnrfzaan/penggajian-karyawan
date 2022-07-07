@@ -25,7 +25,7 @@
 </section>
 <div class="card">
   <div class="card-body">
-    <a href="{{ url('karyawan/create') }}" class="btn btn-outline-primary">Tambah akun</a>
+    <a href="{{ url('karyawan/create') }}" class="btn btn-outline-primary">Tambah Karyawan</a>
     <br><br>
 
     <table id="table_data" class="display table table-hover">

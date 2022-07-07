@@ -22,8 +22,12 @@ class AbsensiController extends Controller
     public function lihat(Request $request)
     {
         $date = Carbon::parse($request->bulan);
-        dd($date->month);
-        return "Lihat";
+
+        $karyawan = Karyawan::all();
+        $bulan = $date->month;
+        $tahun = $date->year;
+
+        return view('absensi.lihat', compact('karyawan', 'bulan', 'tahun'));
     }
 
     public function rekap(Request $request)
