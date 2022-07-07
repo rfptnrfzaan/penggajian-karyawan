@@ -11,17 +11,21 @@
 </section>
 
 <div class="card">
+    <form action="{{ url("absensi/lihat"); }}" method="post">
     <div class="card-body">
+            @csrf
+            <div class="form-group">
+              <label>Bulan/Tahun</label>
+              <input type="month" class="form-control" style="width: 20%;" name="bulan">
+            </div>
+    <br>
+    <button type="submit" class="btn btn-outline-primary">Tampilkan Data</button>
+    </form>
+
+    <a href="{{ url('absensi/create') }}" class="btn btn-outline-primary" style = "position:relative; left:10px;">Input Kehadiran</a>
+    <br><br>
       <table id="table_data" class="table table-hover">
         <thead>
-          <div class="form-group">
-            <label>Bulan/Tahun</label>
-            <input type="month" class= "form-control" style="width: 20%;"> 
-          </div>
-        <br>
-        <a href="#" class="btn btn-outline-primary">Tampilkan Data</a>
-        <a href="{{ url('absensi/create') }}" class="btn btn-outline-primary" style = "position:relative; left:10px;">Input Kehadiran</a>
-            <br><br>
           <tr>
             <th scope="col" colspan="1">No</th>
             <th scope="col" colspan="3">NIK</th>
@@ -33,7 +37,7 @@
           </tr>
         </thead>
         <tbody>
-    
+
         </tbody>
       </table>
 @endsection

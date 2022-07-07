@@ -11,6 +11,10 @@ class Karyawan extends Model
     protected $table = 'karyawan';
     protected $guarded = [];
 
+    protected $attributes = [
+        'tunjangan_lainnya' => 0,
+    ];
+
     public function absensi()
     {
         return $this->hasMany(Absensi::class, 'id_karyawan');
