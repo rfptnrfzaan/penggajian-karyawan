@@ -53,8 +53,9 @@ class KaryawanController extends Controller
     public function show(Karyawan $karyawan)
     {
         $ptkp = TaxCalculator::CalculatePTKP($karyawan);
+        dd($karyawan->jumlahLembur(2022, 7));
 
-        dd(TaxCalculator::CalculatePKP(53000000, $ptkp));
+        // dd(TaxCalculator::CalculatePKP(53000000, $ptkp));
     }
 
     /**

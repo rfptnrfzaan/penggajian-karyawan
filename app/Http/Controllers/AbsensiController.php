@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Absensi;
 use Illuminate\Http\Request;
 use App\Models\Karyawan;
+use Illuminate\Support\Carbon;
 
 class AbsensiController extends Controller
 {
@@ -15,8 +16,19 @@ class AbsensiController extends Controller
      */
     public function index()
     {
-        $absensi = Absensi::all();
-        return view('absensi/table', compact('absensi'));
+        return view('absensi.absensi');
+    }
+
+    public function lihat(Request $request)
+    {
+        $date = Carbon::parse($request->bulan);
+        dd($date->month);
+        return "Lihat";
+    }
+
+    public function rekap(Request $request)
+    {
+        return "Rekap";
     }
 
     /**
@@ -73,7 +85,7 @@ class AbsensiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateAbesensiRequest $request, Absensi $absensi)
+    public function update(Request $request, Absensi $absensi)
     {
         $absensi->fill($request->all());
         $absensi->save();
