@@ -37,7 +37,3 @@ Route::get('/data_gaji', function () {
     return view('gaji/data_gaji');
 });
 
-Route::get('data_absensi', function (){
-    return view('absensi/index');
-});
-?>
