@@ -41,17 +41,28 @@
           </tr>
         </thead>
         <tbody>
-          @foreach ($gaji as $data)
+          @php
+            $n = 1;
+          @endphp
+          @foreach ($karyawan as $data)
+          @php
+              $gaji= GajiCalculator::CalculateGaji($data, $date->year, $date->month);
+          @endphp
           <tr>
             <td>{{ $n++ }}</td>
             <td>{{ $data->karyawan->nik }}</td>
             <td>{{ $data->karyawan->nama }}</td>
-            <td>{{ $data->masuk }}</td>
-            <td>{{ $data->keterangan }}</td>
+            <td>{{ $data->npwp }}</td>
+            <td>{{ $data->jenis_kelamin }}</td>
+            <td>{{ $data->jabatan }}</td>
+            <td>{{ $data->gaji_pokok }}</td>
+            <td>{{ $data->status }}</td>
+            <td>{{ $data->tanggungan }}</td>
             <td>{{ $data->lembur }}</td>
-            <td>{{ $data->gaji_lembur }}</td>
             <td>{{ $data->spj }}</td>
-            <td><a href="{{ route('absensi.edit', $data->id) }}" class="ion-edit" data-pack="default" data-tags="change, update, write, type, pencil"></a></td>
+            <td>{{ $data->jaminan }}</td>
+            <td>{{ $data->potongan }}</td>
+            <td>{{ $data->total_gaji }}</td>
           </tr>
           @endforeach
         </tbody>

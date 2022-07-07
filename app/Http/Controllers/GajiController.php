@@ -11,10 +11,11 @@ class GajiController extends Controller
 {
     public function index()
     {
-        # code...
+        $karyawan = Karyawan::all();
+        return view('gaji/gaji');
     }
 
-    public function lihat(Request $request){
+    public function detail(Request $request){
         $karyawan = Karyawan::find($request->id_karyawan);
         $date = Carbon::parse($request->bulan);
 
