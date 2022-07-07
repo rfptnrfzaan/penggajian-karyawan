@@ -30,11 +30,6 @@ class AbsensiController extends Controller
         return view('absensi.lihat', compact('karyawan', 'bulan', 'tahun'));
     }
 
-    public function rekap(Request $request)
-    {
-        return "Rekap";
-    }
-
     /**
      * Show the form for creating a new resource.
      *

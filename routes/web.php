@@ -25,7 +25,6 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('karyawan', KaryawanController::class);
     Route::resource('absensi', AbsensiController::class);
     Route::post("absensi/lihat",[AbsensiController::class, 'lihat']);
-    Route::post("absensi/rekap",[AbsensiController::class, 'rekap']);
 
     Route::get("gaji",[GajiController::class, 'index']);
 });
