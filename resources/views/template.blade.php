@@ -19,9 +19,7 @@
   <link rel="stylesheet" href="{{ url('assets/css/components.css') }}">
 
   <style>
-    .sidebar-menu li a :hover{
-      transform: scale(120%);
-    }
+ 
   </style>
   @yield('css')
 

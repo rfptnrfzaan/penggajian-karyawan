@@ -1,10 +1,24 @@
+@yield('css')
+<style>
+  img{
+    width: 50px;
+    height: 50px;
+    margin-top: 10px;
+  }
+  .big{
+    width: 100px;
+    height: 100px;
+    margin-bottom: 100px;
+  }
+</style>
+
 <div class="main-sidebar sidebar-style-2">
   <aside id="sidebar-wrapper">
     <div class="sidebar-brand">
-      <a href="{{ url('dashboard') }}">CBK</a>
+      <a href="{{ url('dashboard') }}"> <img class="big" src="{{ url('assets/img/logo/logo.png') }}"></a>
     </div>
     <div class="sidebar-brand sidebar-brand-sm">
-      <a href="{{ url('dashboard') }}">CBK</a>
+      <a href="{{ url('dashboard') }}"> <img src="{{ url('assets/img/logo/logo.png') }}"></a>
     </div>
     <ul class="sidebar-menu">
       <li><a class="nav-link" href="{{ url('karyawan') }}"> <i class="fas fa-clipboard-list"></i> <span> Data Karyawan</span></a></li>
