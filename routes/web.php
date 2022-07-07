@@ -27,6 +27,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post("absensi/lihat",[AbsensiController::class, 'lihat']);
 
     Route::get("gaji",[GajiController::class, 'index']);
+    Route::post("gaji/lihat",[GajiController::class, 'lihat']);
+    Route::get("gaji/detail/{tahun}/{bulan}/{id_karyawan}",[GajiController::class, 'detail']);
 });
 
 Route::get('/pph', function () {

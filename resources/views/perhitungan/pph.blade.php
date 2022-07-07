@@ -12,7 +12,7 @@
 
 <div class="card">  
     <div class="card-body">
-      <table id="table_data" class="table table-hover">
+      <table id="table_data" class="table table-responsive table-hover">
         <thead>
           <label>Bulan/Tahun</label>
             <input type="month" class= "form-control" style="width: 20%;"> 

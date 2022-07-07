@@ -28,7 +28,7 @@
     <a href="{{ url('karyawan/create') }}" class="btn btn-outline-primary">Tambah Karyawan</a>
     <br><br>
 
-    <table id="table_data" class="display table table-hover">
+    <table id="table_data" class="display table-responsive table table-hover">
       <thead>
         <tr>
           <th scope="col">No</th>
