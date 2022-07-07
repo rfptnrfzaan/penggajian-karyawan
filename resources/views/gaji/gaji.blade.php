@@ -41,7 +41,19 @@
           </tr>
         </thead>
         <tbody>
-    
+          @foreach ($gaji as $data)
+          <tr>
+            <td>{{ $n++ }}</td>
+            <td>{{ $data->karyawan->nik }}</td>
+            <td>{{ $data->karyawan->nama }}</td>
+            <td>{{ $data->masuk }}</td>
+            <td>{{ $data->keterangan }}</td>
+            <td>{{ $data->lembur }}</td>
+            <td>{{ $data->gaji_lembur }}</td>
+            <td>{{ $data->spj }}</td>
+            <td><a href="{{ route('absensi.edit', $data->id) }}" class="ion-edit" data-pack="default" data-tags="change, update, write, type, pencil"></a></td>
+          </tr>
+          @endforeach
         </tbody>
       </table>
 @endsection
