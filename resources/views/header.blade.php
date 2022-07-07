@@ -10,9 +10,6 @@
     <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
       <div class="d-sm-none d-lg-inline-block">Hi, Ujang Maman</div></a>
       <div class="dropdown-menu dropdown-menu-right">
-        <a href="features-profile.html" class="dropdown-item has-icon">
-          <i class="far fa-key"></i> Reset Password
-        </a>
         <div class="dropdown-divider"></div>
         <a href="{{ url('login') }}" class="dropdown-item has-icon text-danger">
           <i class="fas fa-sign-out-alt"></i> Logout

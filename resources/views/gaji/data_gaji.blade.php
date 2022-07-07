@@ -9,7 +9,7 @@
       <div class="section-body">
         <div class="card">
           <div class="card-header">
-            <h4>Absensi</h4>
+            <h4>Data Gaji Karyawan</h4>
           </div>
   
           <form method="POST" action="">
@@ -18,6 +18,11 @@
             <div class="form-group">
                 <label>Bulan/Tahun</label>
                 <input type="month" class= "form-control" style="width: 20%;"> 
+                <div class="card-footer text-right">
+                    <a href="#" class="btn btn-outline-primary">Batal</a>
+                    <a href="#" class="btn btn-outline-primary">Simpan</a>
+                    <a href="#" class="btn btn-outline-primary">Cetak</a>
+                  </div>
             </div>
             <div class="form-group row">
                 <label class="col-2 col-form-label">NIK</label>
@@ -131,7 +136,7 @@
                 </div>
             </div>
             <div class="card-footer text-right">
-                <button class="btn btn-primary mr-1" type="submit">Simpan</button>
+                <button class="btn btn-primary mr-1" type="submit">Hitung</button>
               </div>
         </form>
       </div>

@@ -1,6 +1,6 @@
 @extends('template')
 @section('title')
-    edit absensi
+    Edit Absensi
 @endsection
 
 @section('content')

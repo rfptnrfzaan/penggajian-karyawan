@@ -1,6 +1,6 @@
 @extends('template')
 @section('title')
-    data absensi
+    Data Absensi
 @endsection
 
 @section('content')
