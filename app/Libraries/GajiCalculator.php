@@ -6,58 +6,36 @@ use App\Models\Karyawan;
 
 class GajiCalculator {
 
-    public static function CalculateGaji(Karyawan $karyawan){
-        $steps = [];
+    public static function CalculateGaji(Karyawan $karyawan, $tahun, $bulan){
+        $gaji = $karyawan->gaji_pokok;
+        $hadir = $karyawan->jumlahHadir($tahun, $bulan);
+        $lembur = $karyawan->jumlahGajiLembur($tahun, $bulan);
+        $spj = $karyawan->jumlahSPJ($tahun, $bulan);
 
-        $pribadi = 54000000;
-        array_push($steps, ['step' => "Wajib Pajak Pribadi", 'result' => $pribadi]);
+        $makan = $hadir * $karyawan->tunjangan_makanan;
+        $transport = $hadir * $karyawan->tunjangan_transportasi;
 
-        $menikah = 0;
-        if($karyawan->status_pernikahan == "Menikah"){
-            $menikah = 4500000;
-            array_push($steps, ['step' => "Menikah", 'result' => $menikah]);
-        }
-        $tanggungan = $karyawan->tanggungan * 4500000;
-        array_push($steps, ['step' => "Tanggungan ({$karyawan->tanggungan})", 'result' => $tanggungan]);
+        $jkk = $gaji * 0.24 / 100;
+        $jkm = $gaji * 0.3 / 100;
 
-        $ptkp = $pribadi + $menikah + $tanggungan;
-        return ['ptkp' => $ptkp, 'steps' => $steps];
-    }
+        $bruto = $gaji + $makan + $transport + $lembur + $spj + $jkk + $jkm;
 
-    public static function CalculateJaminan(Karyawan $karyawan){
-        $steps = [];
+        $jht = $gaji * 2 / 100;
 
-        $pribadi = 54000000;
-        array_push($steps, ['step' => "Wajib Pajak Pribadi", 'result' => $pribadi]);
+        $netto = $bruto - $jht;
 
-        $menikah = 0;
-        if($karyawan->status_pernikahan == "Menikah"){
-            $menikah = 4500000;
-            array_push($steps, ['step' => "Menikah", 'result' => $menikah]);
-        }
-        $tanggungan = $karyawan->tanggungan * 4500000;
-        array_push($steps, ['step' => "Tanggungan ({$karyawan->tanggungan})", 'result' => $tanggungan]);
-
-        $ptkp = $pribadi + $menikah + $tanggungan;
-        return ['ptkp' => $ptkp, 'steps' => $steps];
-    }
-
-    public static function CalculatePengurang(Karyawan $karyawan){
-        $steps = [];
-
-        $pribadi = 54000000;
-        array_push($steps, ['step' => "Wajib Pajak Pribadi", 'result' => $pribadi]);
-
-        $menikah = 0;
-        if($karyawan->status_pernikahan == "Menikah"){
-            $menikah = 4500000;
-            array_push($steps, ['step' => "Menikah", 'result' => $menikah]);
-        }
-        $tanggungan = $karyawan->tanggungan * 4500000;
-        array_push($steps, ['step' => "Tanggungan ({$karyawan->tanggungan})", 'result' => $tanggungan]);
-
-        $ptkp = $pribadi + $menikah + $tanggungan;
-        return ['ptkp' => $ptkp, 'steps' => $steps];
+        return [
+            "gaji_pokok" => $gaji,
+            "tunjangan_makan" => $makan,
+            "tunjangan_transport" => $transport,
+            "lembur" => $lembur,
+            "spj" => $spj,
+            "jkk" => $jkk,
+            "jkm" => $jkm,
+            "bruto" => $bruto,
+            "jht" => $jht,
+            "netto" => $netto
+        ];
     }
 
 }
