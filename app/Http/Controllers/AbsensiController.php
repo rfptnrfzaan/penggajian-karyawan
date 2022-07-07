@@ -39,7 +39,7 @@ class AbsensiController extends Controller
     public function create()
     {
         $karyawan = Karyawan::all();
-        return view('absensi/data_absensi', compact('karyawan'));
+        return view('absensi.table', compact('karyawan'));
     }
 
     /**
@@ -50,9 +50,20 @@ class AbsensiController extends Controller
      */
     public function store(Request $request)
     {
-        $absensi = new Absensi();
-        $absensi->fill($request->all());
-        $absensi->save();
+        $tanggal = $request->tanggal;
+        foreach ($request->form as $id => $value) {
+            Absensi::updateOrCreate(
+                ['tanggal' => $tanggal, 'id_karyawan' => $id],
+                [
+                    'masuk' => $value['masuk'],
+                    'lembur' => $value['lembur'],
+                    'gaji_lembur' => $value['gaji_lembur'],
+                    'spj' => $value['spj'],
+                    'keterangan' => $value['keterangan']
+                ]
+            );
+        }
+
         return redirect('absensi');
      }
 
@@ -64,7 +75,7 @@ class AbsensiController extends Controller
      */
     public function show($id)
     {
-        
+
     }
 
     /**

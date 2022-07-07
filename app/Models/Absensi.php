@@ -13,6 +13,7 @@ class Absensi extends Model
     protected $attributes = [
         'gaji_lembur' => 0,
         'spj' => 0,
+        'keterangan' => ''
     ];
 
     public function karyawan()

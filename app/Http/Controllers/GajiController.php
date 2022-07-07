@@ -14,6 +14,11 @@ class GajiController extends Controller
         # code...
     }
 
+    public function table(Request $request){
+        $karyawan = Karyawan::all();
+        // return view ke tabel dengan compact("karyawan", "bulan", )
+    }
+
     public function lihat(Request $request){
         $karyawan = Karyawan::find($request->id_karyawan);
         $date = Carbon::parse($request->bulan);

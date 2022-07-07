@@ -93,8 +93,6 @@
         </div>
       </div>
     </div>
-  </div>
-</div>
 @endsection
 
 @section('script')
@@ -112,5 +110,7 @@ $(document).ready( function () {
         $("#formDelete").attr('action', `{{ url('karyawan/${id}')}}`);
     });
 });
+
+
 </script>
 @endsection
