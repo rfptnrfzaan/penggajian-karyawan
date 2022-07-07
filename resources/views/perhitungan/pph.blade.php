@@ -12,8 +12,9 @@
 
 <div class="card">  
     <div class="card-body">
-      <table class="table table-hover">
+      <table id="table_data" class="table table-hover">
         <thead>
+          <label>Bulan/Tahun</label>
             <input type="month" class= "form-control" style="width: 20%;"> 
         <br>
         <a href="#" class="btn btn-outline-primary">Tampilkan</a>

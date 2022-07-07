@@ -12,7 +12,7 @@
 
 <div class="card">  
     <div class="card-body">
-      <table class="table table-hover">
+      <table id="table_data" class="table table-hover">
         <thead>
           <div class="form-group">
             <label>Bulan/Tahun</label>
@@ -27,10 +27,17 @@
             <th>No</th>
             <th>NIK</th>
             <th>Nama</th>
-            <th>Masuk</th>
+            <th>NPWP</th>
+            <th>Jenis kelamin</th>
+            <th>Jabatan</th>
+            <th>Gaji pokok</th>
+            <th>Status</th>
+            <th>Tanggungan</th>
             <th>Lembur</th>
-            <th>Gaji Lembur</th>
             <th>SPJ</th>
+            <th>Jaminan</th>
+            <th>Potongan</th>
+            <th>Total gaji</th>
           </tr>
         </thead>
         <tbody>

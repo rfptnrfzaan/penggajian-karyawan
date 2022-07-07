@@ -31,10 +31,26 @@
             <th scope="col">Lembur</th>
             <th scope="col">Gaji Lembur</th>
             <th scope="col">SPJ</th>
+            <th scope="col">Aksi</th>
           </tr>
         </thead>
         <tbody>
-    
+            @php
+            $n = 1;
+        @endphp
+        @foreach ($absensi as $data)
+        <tr>
+          <td>{{ $n++ }}</td>
+          <td>{{ $data->karyawan->nik }}</td>
+          <td>{{ $data->karyawan->nama }}</td>
+          <td>{{ $data->masuk }}</td>
+          <td>{{ $data->keterangan }}</td>
+          <td>{{ $data->lembur }}</td>
+          <td>{{ $data->gaji_lembur }}</td>
+          <td>{{ $data->spj }}</td>
+          <td><a href="{{ route('absensi.edit', $data->id) }}" class="ion-edit" data-pack="default" data-tags="change, update, write, type, pencil"></a></td>
+        </tr>
+        @endforeach
         </tbody>
       </table>
 @endsection
