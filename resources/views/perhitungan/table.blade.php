@@ -58,9 +58,9 @@
           <td>{{ $data->jabatan }}</td>
           <td>{{ $data->status_pernikahan }}</td>
           <td>{{ $data->tanggungan }}</td>
-          <td>{{ $gaji['bruto']}}</td>
-          <td>{{ $pph21}}</td>
-          <td>{{ $gajiterima }}</td>
+          <td>{{ 'Rp. '.number_format( $gaji['bruto'], 0, ',', '.').',00' }}</td>
+          <td>{{ 'Rp. '.number_format( $pph21, 0, ',', '.').',00' }}</td>
+          <td>{{ 'Rp. '.number_format( $gajiterima, 0, ',', '.').',00' }}</td>
           <td><a href='{{url("pph/detail/{$tahun}/{$bulan}/{$data->id}")}}'> <i class="fas fa-info-circle"></i></a></td>
         </tr>
         @endforeach

@@ -58,14 +58,14 @@
             <td>{{ $data->npwp }}</td>
             <td>{{ $data->jenis_kelamin }}</td>
             <td>{{ $data->jabatan }}</td>
-            <td>{{ $data->gaji_pokok }}</td>
+            <td>{{ 'Rp. '.number_format( $data->gaji_pokok, 0, ',', '.').',00' }}</td>
             <td>{{ $data->status_pernikahan }}</td>
             <td>{{ $data->tanggungan }}</td>
-            <td>{{ $gaji['lembur']}}</td>
-            <td>{{ $gaji['spj']}}</td>
-            <td>{{ $gaji['jaminan'] }}</td>
-            <td>{{ $gaji['potongan'] }}</td>
-            <td>{{ $gaji['netto'] }}</td>
+            <td>{{ 'Rp. '.number_format( $gaji['lembur'], 0, ',', '.').',00'}}</td>
+            <td>{{ 'Rp. '.number_format( $gaji['spj'], 0, ',', '.').',00'}}</td>
+            <td>{{ 'Rp. '.number_format( $gaji['jaminan'], 0, ',', '.').',00' }}</td>
+            <td>{{ 'Rp. '.number_format( $gaji['potongan'], 0, ',', '.').',00' }}</td>
+            <td>{{ 'Rp. '.number_format( $gaji['netto'], 0, ',', '.').',00' }}</td>
             <td><a href='{{url("gaji/detail/{$tahun}/{$bulan}/{$data->id}")}}'> <i class="fas fa-info-circle"></i></a></td>
           </tr>
           @endforeach

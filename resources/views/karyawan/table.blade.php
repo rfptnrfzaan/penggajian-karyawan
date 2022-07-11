@@ -50,7 +50,7 @@
           <td>{{ $data->jenis_kelamin }}</td>
           <td>{{ $data->status_pernikahan }}</td>
           <td>{{ $data->tanggungan }}</td>
-          <td>{{ $data->gaji_pokok }}</td>
+          <td>{{ 'Rp. '.number_format( $data->gaji_pokok, 0, ',', '.').',00' }}</td>
           <td><a href="{{ route('karyawan.edit', $data->id) }}" class="ion-edit" data-pack="default" data-tags="change, update, write, type, pencil"></a></td>
           <td><a data-toggle="modal" href="#deleteModal" data-id="{{ $data->id }}" class="ion-trash-a" data-pack="default" data-tags="delete, remove, dump"></a></td>
         </tr>
