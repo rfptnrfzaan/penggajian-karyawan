@@ -19,7 +19,7 @@
   <link rel="stylesheet" href="{{ url('assets/css/components.css') }}">
 
   <style>
- 
+    
   </style>
   @yield('css')
 
@@ -37,7 +37,6 @@
 <body class="sidebar-mini">
   <div id="app">
     <div class="main-wrapper main-wrapper-1">
-        <div class="navbar-bg"></div>
         @include('header')
         @include('sidebar')
 

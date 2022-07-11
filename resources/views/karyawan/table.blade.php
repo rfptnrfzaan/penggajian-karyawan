@@ -5,16 +5,6 @@
 
 @section('css')
 <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap4.min.css">
-<style>
-  .ion-edit:hover {
-    opacity: 0.9;
-    transform: scale(120%);
-  }
-  .ion-trash-a:hover {
-    opacity: 0.9;
-    transform: scale(120%);
-  }
-</style>
 @endsection
 
 @section('content')

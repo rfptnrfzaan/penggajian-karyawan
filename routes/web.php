@@ -32,10 +32,12 @@ Route::middleware(['auth'])->group(function () {
 });
 
 Route::get('/pph', function () {
+    return view('perhitungan/table');
+});
+
+Route::get('/data_pph', function (){
     return view('perhitungan/pph');
 });
 
-Route::get('/data_gaji', function () {
-    return view('gaji/data_gaji');
-});
+?>
 
