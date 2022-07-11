@@ -66,7 +66,7 @@
                             <div class="form-group row">
                                 <label class="col-4 col-form-label">Gaji Pokok</label>
                                 <div class="col-8">
-                                <input type="text" name="gaji_pokok" class="form-control" readonly="" value="{{ $karyawan->gaji_pokok}}">
+                                <input type="text" name="gaji_pokok" class="form-control" readonly="" value="{{ 'Rp. '.number_format( $karyawan->gaji_pokok, 0, ',', '.').',00' }}">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -92,19 +92,19 @@
                             <div class="form-group row">
                                 <label class="col-4 col-form-label">Tunjangan Makan</label>
                                 <div class="col-8">
-                                <input type="text" name="tunjangan_makanan" class="form-control" readonly="" value="{{ $karyawan->tunjangan_makanan }}">
+                                <input type="text" name="tunjangan_makanan" class="form-control" readonly="" value="{{ 'Rp. '.number_format( $karyawan->tunjangan_makanan, 0, ',', '.').',00' }}">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-4 col-form-label">Tunjangan Transportasi</label>
                                 <div class="col-8">
-                                <input type="text" name="tunjangan_transportasi" class="form-control" readonly="" value="{{ $karyawan->tunjangan_transportasi }}">
+                                <input type="text" name="tunjangan_transportasi" class="form-control" readonly="" value="{{ 'Rp. '.number_format( $karyawan->tunjangan_transportasi, 0, ',', '.').',00' }}">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-4 col-form-label">Tunjangan Lainnya</label>
                                 <div class="col-8">
-                                <input type="text" name="tunjangan_lainnya" class="form-control" readonly="" value="{{ $karyawan->tunjangan_lainnya }}"> 
+                                <input type="text" name="tunjangan_lainnya" class="form-control" readonly="" value="{{ 'Rp. '.number_format( $karyawan->tunjangan_lainnya, 0, ',', '.').',00' }}"> 
                                 </div>
                             </div>
                         </div>
@@ -119,13 +119,13 @@
                             <div class="form-group row">
                                 <label class="col-4 col-form-label">Lembur</label>
                                 <div class="col-8">
-                                <input type="text" name="lembur" class="form-control" readonly="" value="{!! $gaji['lembur'] !!}">
+                                <input type="text" name="lembur" class="form-control" readonly="" value="{!! 'Rp. '.number_format( $gaji['lembur'], 0, ',', '.').',00' !!}">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-4 col-form-label">SPJ</label>
                                 <div class="col-8">
-                                <input type="text" name="spj" class="form-control" readonly="" value="{!! $gaji['spj'] !!}">
+                                <input type="text" name="spj" class="form-control" readonly="" value="{!! 'Rp. '.number_format( $gaji['spj'], 0, ',', '.').',00' !!}">
                                 </div>
                             </div>
                         </div>
@@ -140,13 +140,13 @@
                             <div class="form-group row">
                                 <label class="col-4 col-form-label">JKK</label>
                                 <div class="col-8">
-                                <input type="text" name="jkk" class="form-control" readonly="" value="{!! $gaji['jkk'] !!}">
+                                <input type="text" name="jkk" class="form-control" readonly="" value="{!! 'Rp. '.number_format( $gaji['jkk'], 0, ',', '.').',00' !!}">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-4 col-form-label">JKM</label>
                                 <div class="col-8">
-                                <input type="text" name="jkm" class="form-control" readonly="" value="{!! $gaji['jkm'] !!}">
+                                <input type="text" name="jkm" class="form-control" readonly="" value="{!! 'Rp. '.number_format( $gaji['jkm'], 0, ',', '.').',00' !!}">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -167,7 +167,7 @@
                             <div class="form-group row">
                                 <label class="col-4 col-form-label">JHT</label>
                                 <div class="col-8">
-                                <input type="text" name="jht" class="form-control" readonly="" value="{{ $gaji['jht']}}">
+                                <input type="text" name="jht" class="form-control" readonly="" value="{{ 'Rp. '.number_format( $gaji['jht'], 0, ',', '.').',00' }}">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -203,43 +203,43 @@
                             <div class="form-group row text-right">
                                 <label class="col-4 col-form-label">Gaji Pokok</label>
                                 <div class="col-8">
-                                <input type="text" class="form-control" readonly="" value="{!! $gaji['gaji_pokok'] !!}">
+                                <input type="text" class="form-control" readonly="" value="{!! 'Rp. '.number_format( $gaji['gaji_pokok'], 0, ',', '.').',00' !!}">
                                 </div>
                             </div>
                             <div class="form-group row text-right">
                                 <label class="col-4 col-form-label">Tunjangan Makanan</label>
                                 <div class="col-8">
-                                <input type="text" name="" class="form-control" readonly="" value="{!! $gaji['tunjangan_makan'] !!}">
+                                <input type="text" name="" class="form-control" readonly="" value="{!! 'Rp. '.number_format( $gaji['tunjangan_makan'], 0, ',', '.').',00' !!}">
                                 </div>
                             </div>
                             <div class="form-group row text-right">
                                 <label class="col-4 col-form-label">Tunjangan Transportasi</label>
                                 <div class="col-8">
-                                <input type="text" name="" class="form-control" readonly="" value="{!! $gaji['tunjangan_transport'] !!}">
+                                <input type="text" name="" class="form-control" readonly="" value="{!! 'Rp. '.number_format( $gaji['tunjangan_transport'], 0, ',', '.').',00' !!}">
                                 </div>
                             </div>
                             <div class="form-group row text-right">
                                 <label class="col-4 col-form-label">Tunjangan Lainnya</label>
                                 <div class="col-8">
-                                <input type="text" name="" class="form-control" readonly="" value="{{ $karyawan->tunjangan_lainnya }}">
+                                <input type="text" name="" class="form-control" readonly="" value="{{ 'Rp. '.number_format( $karyawan->tunjangan_lainnya, 0, ',', '.').',00' }}">
                                 </div>
                             </div>
                             <div class="form-group row text-right">
                                 <label class="col-4 col-form-label">Lembur</label>
                                 <div class="col-8">
-                                <input type="text" name="lembur" class="form-control" readonly="" value="{!! $gaji['lembur'] !!}">
+                                <input type="text" name="lembur" class="form-control" readonly="" value="{!! 'Rp. '.number_format( $gaji['lembur'], 0, ',', '.').',00' !!}">
                                 </div>
                             </div>
                             <div class="form-group row text-right">
                                 <label class="col-4 col-form-label">SPJ</label>
                                 <div class="col-8">
-                                <input type="text" name="" class="form-control" readonly="" value="{!! $gaji['spj'] !!}">
+                                <input type="text" name="" class="form-control" readonly="" value="{!! 'Rp. '.number_format( $gaji['spj'], 0, ',', '.').',00' !!}">
                                 </div>
                             </div>
                             <div class="form-group row text-right">
                                 <label class="col-4 col-form-label">JKK</label>
                                 <div class="col-8">
-                                <input type="text" name="" class="form-control" readonly="" value="{!! $gaji['jkk'] !!}">
+                                <input type="text" name="" class="form-control" readonly="" value="{!! 'Rp. '.number_format( $gaji['jkk'], 0, ',', '.').',00' !!}">
                                 </div>
                             </div>
                         </div>
@@ -253,7 +253,7 @@
                             <div class="form-group row text-right">
                                 <label class="col-4 col-form-label">JKM</label>
                                 <div class="col-8">
-                                <input type="text" name="" class="form-control" readonly="" value="{!! $gaji['jkm'] !!}">
+                                <input type="text" name="" class="form-control" readonly="" value="{!! 'Rp. '.number_format( $gaji['jkm'], 0, ',', '.').',00' !!}">
                                 </div>
                             </div>
                             <div class="form-group row text-right">
@@ -265,13 +265,13 @@
                             <div class="form-group row text-right">
                                 <label class="col-4 col-form-label">Gaji Bruto</label>
                                 <div class="col-8">
-                                <input type="text" name="" class="form-control" readonly="" value="{!! $gaji['bruto'] !!}">
+                                <input type="text" name="" class="form-control" readonly="" value="{!! 'Rp. '.number_format( $gaji['bruto'], 0, ',', '.').',00' !!}">
                                 </div>
                             </div>
                             <div class="form-group row text-right">
                                 <label class="col-4 col-form-label">JHT</label>
                                 <div class="col-8">
-                                <input type="text" name="" class="form-control" readonly="" value="{!! $gaji['jht'] !!}">
+                                <input type="text" name="" class="form-control" readonly="" value="{!! 'Rp. '.number_format( $gaji['jht'], 0, ',', '.').',00' !!}">
                                 </div>
                             </div>
                             <div class="form-group row text-right">
@@ -283,7 +283,7 @@
                             <div class="form-group row text-right">
                                 <label class="col-4 col-form-label">Total Gaji</label>
                                 <div class="col-8">
-                                <input type="text" name="" class="form-control" readonly="" value="{!! $gaji['netto'] !!}">
+                                <input type="text" name="" class="form-control" readonly="" value="{!! 'Rp. '.number_format( $gaji['netto'], 0, ',', '.').',00' !!}">
                                 </div>
                             </div>
                         </div>

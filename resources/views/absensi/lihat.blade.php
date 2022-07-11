@@ -50,8 +50,8 @@
                 <td>{{ $data->nama }}</td>
                 <td>{{ $data->jumlahHadir($tahun, $bulan) }}</td>
                 <td>{{ $data->jumlahLembur($tahun, $bulan) }}</td>
-                <td>{{ $data->jumlahGajiLembur($tahun, $bulan) }}</td>
-                <td>{{ $data->jumlahSPJ($tahun, $bulan) }}</td>
+                <td>{{ 'Rp. '.number_format( $data->jumlahGajiLembur($tahun, $bulan), 0, ',', '.').',00' }}</td>
+                <td>{{ 'Rp. '.number_format( $data->jumlahSPJ($tahun, $bulan), 0, ',', '.').',00' }}</td>
             </tr>
         @endforeach
         </tbody>

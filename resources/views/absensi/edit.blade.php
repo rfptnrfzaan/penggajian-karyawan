@@ -60,13 +60,13 @@
             <div class="form-group row">
                 <label class="col-2 col-form-label">Gaji Lembur</label>
                 <div class="col-10">
-                <input type="text" name="gaji_lembur" class="form-control" value="{{ $absensi->gaji_lembur }}">
+                <input type="text" name="gaji_lembur" class="form-control" value="{{ 'Rp. '.number_format( $absensi->gaji_lembur, 0, ',', '.').',00' }}">
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-2 col-form-label">SPJ</label>
                 <div class="col-10">
-                <input type="text" name="spj" class="form-control" value="{{ $absensi->spj }}">
+                <input type="text" name="spj" class="form-control" value="{{ 'Rp. '.number_format( $absensi->spj, 0, ',', '.').',00' }}">
                 </div>
             </div>
         </div>
