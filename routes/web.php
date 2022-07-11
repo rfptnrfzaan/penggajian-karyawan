@@ -36,6 +36,6 @@ Route::middleware(['auth'])->group(function () {
     Route::get("pph/detail/{tahun}/{bulan}/{id_karyawan}",[PphController::class, 'detail']);
 });
 
-Route::get('/reset password', function () {
+Route::get('/reset_password', function () {
     return view('login/reset');
 });
