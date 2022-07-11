@@ -14,12 +14,13 @@ class GajiCalculator {
 
         $makan = $hadir * $karyawan->tunjangan_makanan;
         $transport = $hadir * $karyawan->tunjangan_transportasi;
+        $lainnya = $karyawan->tunjangan_lainnya;
 
         $jkk = $gaji * 0.24 / 100;
         $jkm = $gaji * 0.3 / 100;
         $jaminan = $jkk + $jkm;
 
-        $bruto = $gaji + $makan + $transport + $lembur + $spj + $jkk + $jkm;
+        $bruto = $gaji + $makan + $transport + $lembur + $spj + $jkk + $jkm + $lainnya;
 
         $jht = $gaji * 2 / 100;
 
@@ -29,6 +30,7 @@ class GajiCalculator {
             "gaji_pokok" => $gaji,
             "tunjangan_makan" => $makan,
             "tunjangan_transport" => $transport,
+            "lainnya" => $lainnya,
             "lembur" => $lembur,
             "spj" => $spj,
             "jkk" => $jkk,

@@ -1,16 +1,16 @@
 @extends('template')
 @section('title')
-   Data Rekapan Absensi
+   Data PPH21
 @endsection
 
 @section('content')
 <section class="section">
     <div class="section-header">
-      <h1>Data Gaji Karyawan</h1>
+      <h1>Data PPH21</h1>
     </div>
 </section>
 <div class="card">
-    <form action="{{ url("gaji/lihat"); }}" method="post">
+    <form action="{{ url("pph/lihat"); }}" method="post">
     <div class="card-body">
         @csrf
         <div class="row">

@@ -43,6 +43,8 @@ class TaxCalculator {
         return ['netto_month' => $netto_month, 'netto_year' => $netto_month * 12];
     }
 
+    
+
 
     public static function CalculatePKP(int $amount, int $ptkp){
         if($amount < $ptkp) {

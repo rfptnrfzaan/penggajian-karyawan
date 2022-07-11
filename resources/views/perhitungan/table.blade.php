@@ -12,15 +12,15 @@
 
 <div class="card">  
     <div class="card-body">
+      
+        <label>Bulan/Tahun</label>
+          <input type="month" class= "form-control" style="width: 20%;"> 
+      <br>
+      <a href="#" class="btn btn-outline-primary">Tampilkan</a>
+      {{-- <a href="#" class="btn btn-outline-primary" style = "position:relative; left:20px;">Cetak</a> --}}
+      <br><br>
       <table id="table_data" class="table table-responsive table-hover">
         <thead>
-          <label>Bulan/Tahun</label>
-            <input type="month" class= "form-control" style="width: 20%;"> 
-        <br>
-        <a href="#" class="btn btn-outline-primary">Tampilkan</a>
-        <a href="#" class="btn btn-outline-primary" style = "position:relative; left:10px;">Hitung PPH 21</a>
-        <a href="#" class="btn btn-outline-primary" style = "position:relative; left:20px;">Cetak</a>
-        <br><br>
           <tr>
             <th>No</th>
             <th>NIK</th>
@@ -33,10 +33,37 @@
             <th>Gaji Bruto</th>
             <Th>PPH 21 Terhitung</Th>
             <Th>Gaji Diterima</Th>
+            <th>Aksi</th>
           </tr>
         </thead>
         <tbody>
-    
+          @php
+          $n = 1;
+        @endphp
+        @foreach ($karyawan as $data)
+        @php
+            $gaji = App\Libraries\GajiCalculator::CalculateGaji($data, $bulan, $tahun);
+            $netto = App\Libraries\TaxCalculator::CalculateNettoWithBiayaJabatan($gaji['netto']);
+            $ptkp =  App\Libraries\TaxCalculator::CalculatePTKP($data);
+            $pkp = App\Libraries\TaxCalculator::CalculatePKP($netto['netto_year'], $ptkp['ptkp']);
+            $pph21 = $pkp['tax_month'];
+            $gajiterima = $netto['netto_month']-$pph21;
+        @endphp
+        <tr>
+          <td>{{ $n++ }}</td>
+          <td>{{ $data->nik }}</td>
+          <td>{{ $data->nama }}</td>
+          <td>{{ $data->npwp }}</td>
+          <td>{{ $data->jenis_kelamin }}</td>
+          <td>{{ $data->jabatan }}</td>
+          <td>{{ $data->status_pernikahan }}</td>
+          <td>{{ $data->tanggungan }}</td>
+          <td>{{ $gaji['bruto']}}</td>
+          <td>{{ $pph21}}</td>
+          <td>{{ $gajiterima }}</td>
+          <td><a href='{{url("pph/detail/{$tahun}/{$bulan}/{$data->id}")}}'> <i class="fas fa-info-circle"></i></a></td>
+        </tr>
+        @endforeach
         </tbody>
       </table>
 @endsection

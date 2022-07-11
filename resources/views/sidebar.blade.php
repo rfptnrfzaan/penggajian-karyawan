@@ -10,13 +10,23 @@
     height: 100px;
     margin-bottom: 100px;
   }
-  .main-sidebar{
+  .main-sidebar {
     background-color: #22577A;
+    transition: all .60s;
+}
+  .sidebar-menu a span{
+    color: white;
+    font-weight: bold;
   }
-  .sidebar-menu li a span{
+  .sidebar-menu li a:hover span{
     color: black;
     font-weight: bold;
   }
+
+  .sidebar-wrapper {
+    background-color: #22577A;
+    transition: all .60s;
+}
 </style>
 
 <div class="main-sidebar sidebar-style-2">

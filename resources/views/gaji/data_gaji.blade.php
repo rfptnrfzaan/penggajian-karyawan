@@ -20,12 +20,14 @@
           <form method="POST" action="">
             @csrf
         <div class="card-body">
+            <div class="alert alert-info">Menampilkan Data Gaji <b>{{ $karyawan->nama }}</b> Pada Bulan <b>{{$bulan}}</b> Tahun <b>{{$tahun}}</b></div>
             <div class="form-group">
                 <label>Bulan/Tahun</label>
                 <input value="{{ $tahun }}-{{ $bulan }}" type="month" class= "form-control" style="width: 20%;"> 
                 <div class="text-right">
                     <a href="#" class="btn btn-outline-primary">Cetak</a>
                   </div>
+                  
             </div>
             <div class="row mx-auto">
                 <div class="col-6">
@@ -117,13 +119,13 @@
                             <div class="form-group row">
                                 <label class="col-4 col-form-label">Lembur</label>
                                 <div class="col-8">
-                                <input type="text" name="lembur" class="form-control" readonly="" value="{{ $gaji['lembur'] }}">
+                                <input type="text" name="lembur" class="form-control" readonly="" value="{!! $gaji['lembur'] !!}">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-4 col-form-label">SPJ</label>
                                 <div class="col-8">
-                                <input type="text" name="spj" class="form-control" readonly="" value="{{ $gaji['spj']}}">
+                                <input type="text" name="spj" class="form-control" readonly="" value="{!! $gaji['spj'] !!}">
                                 </div>
                             </div>
                         </div>
@@ -138,13 +140,13 @@
                             <div class="form-group row">
                                 <label class="col-4 col-form-label">JKK</label>
                                 <div class="col-8">
-                                <input type="text" name="jkk" class="form-control" readonly="" value="{{ $gaji['jkk']}}">
+                                <input type="text" name="jkk" class="form-control" readonly="" value="{!! $gaji['jkk'] !!}">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-4 col-form-label">JKM</label>
                                 <div class="col-8">
-                                <input type="text" name="jkm" class="form-control" readonly="" value="{{ $gaji['jkm']}}">
+                                <input type="text" name="jkm" class="form-control" readonly="" value="{!! $gaji['jkm'] !!}">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -187,7 +189,7 @@
                             <div class="form-group row text-right">
                                 <label class="col-6 col-form-label">Jumlah Hadir</label>
                                 <div class="col-2">
-                                <input type="text" name="" class="form-control" readonly="" value="">
+                                <input type="text" class="form-control" readonly="" value="{{ $karyawan->jumlahHadir($tahun, $bulan) }}">
                                 </div>
                             </div>
                         </div>
@@ -201,43 +203,43 @@
                             <div class="form-group row text-right">
                                 <label class="col-4 col-form-label">Gaji Pokok</label>
                                 <div class="col-8">
-                                <input type="text" name="" class="form-control" readonly="" value="">
+                                <input type="text" class="form-control" readonly="" value="{!! $gaji['gaji_pokok'] !!}">
                                 </div>
                             </div>
                             <div class="form-group row text-right">
                                 <label class="col-4 col-form-label">Tunjangan Makanan</label>
                                 <div class="col-8">
-                                <input type="text" name="" class="form-control" readonly="" value="">
+                                <input type="text" name="" class="form-control" readonly="" value="{!! $gaji['tunjangan_makan'] !!}">
                                 </div>
                             </div>
                             <div class="form-group row text-right">
                                 <label class="col-4 col-form-label">Tunjangan Transportasi</label>
                                 <div class="col-8">
-                                <input type="text" name="" class="form-control" readonly="" value="">
+                                <input type="text" name="" class="form-control" readonly="" value="{!! $gaji['tunjangan_transport'] !!}">
                                 </div>
                             </div>
                             <div class="form-group row text-right">
                                 <label class="col-4 col-form-label">Tunjangan Lainnya</label>
                                 <div class="col-8">
-                                <input type="text" name="" class="form-control" readonly="" value="">
+                                <input type="text" name="" class="form-control" readonly="" value="{{ $karyawan->tunjangan_lainnya }}">
                                 </div>
                             </div>
                             <div class="form-group row text-right">
                                 <label class="col-4 col-form-label">Lembur</label>
                                 <div class="col-8">
-                                <input type="text" name="lembur" class="form-control" readonly="" value="">
+                                <input type="text" name="lembur" class="form-control" readonly="" value="{!! $gaji['lembur'] !!}">
                                 </div>
                             </div>
                             <div class="form-group row text-right">
                                 <label class="col-4 col-form-label">SPJ</label>
                                 <div class="col-8">
-                                <input type="text" name="" class="form-control" readonly="" value="">
+                                <input type="text" name="" class="form-control" readonly="" value="{!! $gaji['spj'] !!}">
                                 </div>
                             </div>
                             <div class="form-group row text-right">
                                 <label class="col-4 col-form-label">JKK</label>
                                 <div class="col-8">
-                                <input type="text" name="" class="form-control" readonly="" value="">
+                                <input type="text" name="" class="form-control" readonly="" value="{!! $gaji['jkk'] !!}">
                                 </div>
                             </div>
                         </div>
@@ -251,7 +253,7 @@
                             <div class="form-group row text-right">
                                 <label class="col-4 col-form-label">JKM</label>
                                 <div class="col-8">
-                                <input type="text" name="" class="form-control" readonly="" value="">
+                                <input type="text" name="" class="form-control" readonly="" value="{!! $gaji['jkm'] !!}">
                                 </div>
                             </div>
                             <div class="form-group row text-right">
@@ -263,13 +265,13 @@
                             <div class="form-group row text-right">
                                 <label class="col-4 col-form-label">Gaji Bruto</label>
                                 <div class="col-8">
-                                <input type="text" name="" class="form-control" readonly="" value="">
+                                <input type="text" name="" class="form-control" readonly="" value="{!! $gaji['bruto'] !!}">
                                 </div>
                             </div>
                             <div class="form-group row text-right">
                                 <label class="col-4 col-form-label">JHT</label>
                                 <div class="col-8">
-                                <input type="text" name="" class="form-control" readonly="" value="">
+                                <input type="text" name="" class="form-control" readonly="" value="{!! $gaji['jht'] !!}">
                                 </div>
                             </div>
                             <div class="form-group row text-right">
@@ -281,7 +283,7 @@
                             <div class="form-group row text-right">
                                 <label class="col-4 col-form-label">Total Gaji</label>
                                 <div class="col-8">
-                                <input type="text" name="" class="form-control" readonly="" value="">
+                                <input type="text" name="" class="form-control" readonly="" value="{!! $gaji['netto'] !!}">
                                 </div>
                             </div>
                         </div>

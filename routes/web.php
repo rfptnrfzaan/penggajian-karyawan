@@ -4,6 +4,7 @@ use App\Http\Controllers\AbsensiController;
 use App\Http\Controllers\GajiController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PphController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -29,15 +30,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get("gaji",[GajiController::class, 'index']);
     Route::post("gaji/lihat",[GajiController::class, 'lihat']);
     Route::get("gaji/detail/{tahun}/{bulan}/{id_karyawan}",[GajiController::class, 'detail']);
+
+    Route::get("pph",[PphController::class, 'index']);
+    Route::post("pph/lihat",[PphController::class, 'lihat']);
+    Route::get("pph/detail/{tahun}/{bulan}/{id_karyawan}",[PphController::class, 'detail']);
 });
 
-Route::get('/pph', function () {
-    return view('perhitungan/table');
-});
-
-Route::get('/data_pph', function (){
-    return view('perhitungan/pph');
-});
-
-?>
 
