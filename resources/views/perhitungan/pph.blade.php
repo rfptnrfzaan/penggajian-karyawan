@@ -226,9 +226,9 @@
                 
                     @foreach ($pkp['steps'] as $steps)
                     <div class="form-group row">
-                    <label class="col-4 col-form-label text-right">{!! $steps ['step'] !!}</label>
+                    <label class="col-4 col-form-label text-right">{!! $steps['step'] !!}</label>
                     <div class="col-8">
-                        <input type="text" name="" class="form-control" readonly="" value="{!! 'Rp. '.number_format($steps['result'], 0, ',', '.').',00' !!}">
+                        <input type="text" name="" class="form-control" readonly="" value="{!! 'Rp. '.number_format( $steps['result'], 0, ',', '.').',00' !!}">
                         </div>
                     </div>
                     @endforeach
