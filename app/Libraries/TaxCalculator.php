@@ -43,16 +43,17 @@ class TaxCalculator {
         return ['netto_month' => $netto_month, 'netto_year' => $netto_month * 12];
     }
 
-    
+
 
 
     public static function CalculatePKP(int $amount, int $ptkp){
+        $steps = [];
+
         if($amount < $ptkp) {
             $steps = ['step' => '< Rp. '.number_format($ptkp, 0, ',', '.').',00', 'result' => 0];
-            return ['pkp' => 0,'tax' => 0, 'tax_month' => 0, 'steps' => $steps];
+            return ['pkp' => 0,'tax' => 0, 'tax_month' => 0, 'steps' => [$steps]];
         }
 
-        $steps = [];
         $pkp = $amount - $ptkp;
         $temp = $pkp;
         $tax = 0;
@@ -73,6 +74,7 @@ class TaxCalculator {
             $temp = $temp - $limit;
         }
 
+        dd(['pkp' => $pkp, 'tax' => $tax, 'tax_month' => $tax/12, 'steps' => $steps]);
         return ['pkp' => $pkp, 'tax' => $tax, 'tax_month' => $tax/12, 'steps' => $steps];
     }
 
