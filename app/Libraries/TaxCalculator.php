@@ -74,7 +74,6 @@ class TaxCalculator {
             $temp = $temp - $limit;
         }
 
-        dd(['pkp' => $pkp, 'tax' => $tax, 'tax_month' => $tax/12, 'steps' => $steps]);
         return ['pkp' => $pkp, 'tax' => $tax, 'tax_month' => $tax/12, 'steps' => $steps];
     }
 
