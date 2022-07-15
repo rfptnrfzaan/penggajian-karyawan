@@ -20,7 +20,7 @@
       <div class="d-sm-none d-lg-inline-block">Hi, Ujang Maman</div></a>
       <div class="dropdown-menu dropdown-menu-right">
         <div class="dropdown-divider"></div>
-        <a href="{{ url('') }}" class="dropdown-item has-icon text-primary">
+        <a href="{{ url('reset') }}" class="dropdown-item has-icon text-primary">
           <i class="fas fa-key-alt"></i> Reset Password
         </a>
         <a href="{{ url('login') }}" class="dropdown-item has-icon text-danger">

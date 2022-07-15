@@ -1,5 +1,5 @@
 @extends('template')
-@section('title', 'welcome')
+@section('title', 'Welcome')
 
 @section('content')
   <section class="section">
