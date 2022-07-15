@@ -24,10 +24,10 @@ class AbsensiController extends Controller
         $date = Carbon::parse($request->bulan);
 
         $karyawan = Karyawan::all();
-        $bulan = $date->month;
-        $tahun = $date->year;
+        $bulan = $date->format('m');
+        $tahun = $date->format('Y');
 
-        return view('absensi.lihat', compact('karyawan', 'bulan', 'tahun'));
+        return view('absensi.lihat', compact('karyawan', 'bulan', 'tahun', 'date'));
     }
 
     /**
@@ -35,10 +35,45 @@ class AbsensiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function tambah(Request $request)
     {
+        $date = Carbon::parse($request->bulan);
+        $bulan = $date->format('m');
+        $tahun = $date->format('Y');
+
         $karyawan = Karyawan::all();
-        return view('absensi.table', compact('karyawan'));
+        return view('absensi.table', compact('karyawan', 'date', 'bulan', 'tahun'));
+    }
+
+    public function ambil(Request $request){
+        $date = $request->date;
+
+        $karyawans = Karyawan::all();
+        $dataAbsen = [];
+        $n = 1;
+
+        foreach ($karyawans as $karyawan) {
+            $absen = $karyawan->getAbsen($date);
+            $temp = [
+                'no' => $n++,
+                'id' => $karyawan->id,
+                'nik' => $karyawan->nik,
+                'nama' => $karyawan->nama,
+                'masuk' => $absen->masuk ?? '--',
+                'keterangan' => $absen->keterangan ?? '-',
+                'lembur' => $absen->lembur ?? '--',
+                'gaji_lembur' => $absen->gaji_lembur ?? 0,
+                'spj' => $absen->spj ?? 0,
+            ];
+            array_push($dataAbsen, $temp);
+        }
+
+        $data = [
+            'date' => $date,
+            'absensi' => $dataAbsen
+        ];
+
+        return response()->json($data);
     }
 
     /**

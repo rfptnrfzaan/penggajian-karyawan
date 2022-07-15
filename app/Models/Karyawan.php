@@ -49,4 +49,10 @@ class Karyawan extends Model
                     ->whereMonth('tanggal','=',$bulan)
                     ->sum('gaji_lembur') + 0;
     }
+
+    public function getAbsen($tanggal){
+        return $this->absensi()
+                    ->where('tanggal', '=', $tanggal)
+                    ->first();
+    }
 }

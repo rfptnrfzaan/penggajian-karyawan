@@ -18,13 +18,14 @@ Route::get('/', function () {
 Route::get('login', [LoginController::class, 'index'])->name('login');
 Route::post('login', [LoginController::class, 'login']);
 
+Route::get("absensi/ambil",[AbsensiController::class, 'ambil']);
+
 Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('welcome');
-    });
+    Route::get('/dashboard', [LoginController::class, 'dashboard']);
 
     Route::resource('karyawan', KaryawanController::class);
     Route::resource('absensi', AbsensiController::class);
+    Route::post("absensi/tambah",[AbsensiController::class, 'tambah']);
     Route::post("absensi/lihat",[AbsensiController::class, 'lihat']);
 
     Route::get("gaji",[GajiController::class, 'index']);
@@ -35,6 +36,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post("pph/lihat",[PphController::class, 'lihat']);
     Route::get("pph/detail/{tahun}/{bulan}/{id_karyawan}",[PphController::class, 'detail']);
 });
+
+
 
 Route::get('/reset_password', function () {
     return view('login/reset');

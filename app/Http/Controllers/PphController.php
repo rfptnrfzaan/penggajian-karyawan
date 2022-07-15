@@ -22,7 +22,7 @@ class PphController extends Controller
         $bulan = $date->month;
         $tahun = $date->year;
 
-        return view('perhitungan/table', compact('karyawan', 'bulan', 'tahun'));
+        return view('perhitungan/table', compact('karyawan', 'bulan', 'tahun', 'date'));
     }
 
     public function detail($tahun, $bulan, $id_karyawan){
@@ -34,7 +34,9 @@ class PphController extends Controller
         $pph21 = $pkp['tax_month'];
         $gajiterima = $netto['netto_month']-$pph21;
         $biaya = TaxCalculator::CalculateBiayaJabatan($gaji['netto']);
-        return view('perhitungan/pph', compact('karyawan', 'tahun', 'bulan', 'gaji', 'netto', 'ptkp', 'pkp', 'pph21', 'gajiterima', 'biaya' ));
+
+        $date = Carbon::createFromDate($tahun, $bulan, 1);
+        return view('perhitungan/pph', compact('karyawan', 'date', 'tahun', 'bulan', 'gaji', 'netto', 'ptkp', 'pkp', 'pph21', 'gajiterima', 'biaya' ));
 
     }
 

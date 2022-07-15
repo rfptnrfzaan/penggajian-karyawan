@@ -16,18 +16,18 @@
           <div class="card-header">
             <h4>Data Gaji Karyawan</h4>
           </div>
-  
+
           <form method="POST" action="">
             @csrf
         <div class="card-body">
             <div class="alert alert-info">Menampilkan Data Gaji <b>{{ $karyawan->nama }}</b> Pada Bulan <b>{{$bulan}}</b> Tahun <b>{{$tahun}}</b></div>
             <div class="form-group">
                 <label>Bulan/Tahun</label>
-                <input value="{{ $tahun }}-{{ $bulan }}" type="month" class= "form-control" style="width: 20%;"> 
+                <input value="{{ $date->format('Y-m') }}" type="month" class= "form-control" style="width: 20%;">
                 <div class="text-right">
                     <a href="#" class="btn btn-outline-primary">Cetak</a>
                   </div>
-                  
+
             </div>
             <div class="row mx-auto">
                 <div class="col-6">
@@ -48,7 +48,7 @@
                             <div class="form-group row">
                                 <label class="col-4 col-form-label">NPWP</label>
                                 <div class="col-8">
-                                <input type="text" name="npwp" class="form-control" readonly="" value="{{ $karyawan->npwp }}"> 
+                                <input type="text" name="npwp" class="form-control" readonly="" value="{{ $karyawan->npwp }}">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -83,10 +83,10 @@
                             </div>
                         </div>
                     </div>
-        
+
                     <h6 class="text-center">Tunjangan</h6>
                     <br>
-        
+
                     <div class="row">
                         <div class="col-9">
                             <div class="form-group row">
@@ -104,15 +104,15 @@
                             <div class="form-group row">
                                 <label class="col-4 col-form-label">Tunjangan Lainnya</label>
                                 <div class="col-8">
-                                <input type="text" name="tunjangan_lainnya" class="form-control" readonly="" value="{{ 'Rp. '.number_format( $karyawan->tunjangan_lainnya, 0, ',', '.').',00' }}"> 
+                                <input type="text" name="tunjangan_lainnya" class="form-control" readonly="" value="{{ 'Rp. '.number_format( $karyawan->tunjangan_lainnya, 0, ',', '.').',00' }}">
                                 </div>
                             </div>
                         </div>
-        
+
                     </div>
-        
+
                 </div>
-        
+
                 <div class="col-6">
                     <div class="row">
                         <div class="col-9">
@@ -134,7 +134,7 @@
                     <br>
                     <h6 class="text-center">Jaminan</h6>
                     <br>
-        
+
                     <div class="row">
                         <div class="col-9">
                             <div class="form-group row">
@@ -161,7 +161,7 @@
                     <br>
                     <h6 class="text-center">Potongan</h6>
                     <br>
-        
+
                     <div class="row">
                         <div class="col-9">
                             <div class="form-group row">
@@ -245,7 +245,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="col-6">
                     <div class="row">
                         <br><br>

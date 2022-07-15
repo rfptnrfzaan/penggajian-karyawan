@@ -10,15 +10,16 @@
     </div>
 </section>
 
-<div class="card">  
+<div class="card">
     <div class="card-body">
-      
+
         <label>Bulan/Tahun</label>
-          <input type="month" class= "form-control" style="width: 20%;"> 
+          <input type="month" value="{{ $date->format('Y-m') }}" class= "form-control" style="width: 20%;">
       <br>
       <a href="#" class="btn btn-outline-primary">Tampilkan</a>
       {{-- <a href="#" class="btn btn-outline-primary" style = "position:relative; left:20px;">Cetak</a> --}}
       <br><br>
+      <div class="alert alert-info">Menampilkan Data Perhitungan PPH Pada Bulan <b>{{$bulan}}</b> Tahun <b>{{$tahun}}</b></div>
       <table id="table_data" class="table table-responsive table-hover">
         <thead>
           <tr>

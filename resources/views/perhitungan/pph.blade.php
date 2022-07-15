@@ -17,7 +17,7 @@
     <div class="form-group">
         <div class="alert alert-info">Menampilkan Data Perhitungan PPH 21 <b>{{ $karyawan->nama }}</b> Pada Bulan <b>{{$bulan}}</b> Tahun <b>{{$tahun}}</b></div>
         <label>Bulan/Tahun</label>
-        <input value="" type="month" class= "form-control" style="width: 20%;"> 
+        <input value="{{ $date->format('Y-m') }}" type="month" class= "form-control" style="width: 20%;">
         <div class="text-right">
             <a href="#" class="btn btn-outline-primary">Cetak</a>
           </div>
@@ -101,7 +101,7 @@
                     <div class="form-group row">
                         <label class="col-4 col-form-label text-right">Tunjangan Lainnya</label>
                         <div class="col-8">
-                        <input type="text" class="form-control" readonly="" value="{!! 'Rp. '.number_format( $gaji['lainnya'], 0, ',', '.').',00' !!}"> 
+                        <input type="text" class="form-control" readonly="" value="{!! 'Rp. '.number_format( $gaji['lainnya'], 0, ',', '.').',00' !!}">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -223,7 +223,7 @@
                 <br>
                     <h6 class="text-left">Penghasilan Kena Pajak</h6>
                 <br>
-                
+
                     @foreach ($pkp['steps'] as $steps)
                     <div class="form-group row">
                     <label class="col-4 col-form-label text-right">{!! $steps['step'] !!}</label>

@@ -10,21 +10,21 @@
     </div>
 </section>
 
-<div class="card">  
+<div class="card">
     <form action="{{ url("gaji/lihat"); }}" method="post">
     <div class="card-body">
         @csrf
+        <div class="form-group">
+          <label>Bulan/Tahun</label>
+          <input value="{{ $date->format('Y-m') }}" name="bulan" type="month" class= "form-control" style="width: 20%;">
+        </div>
+        <div class="alert alert-info">Menampilkan Data Gaji Pada Bulan <b>{{$bulan}}</b> Tahun <b>{{$tahun}}</b></div>
+      <br>
+      <button type="submit" class="btn btn-outline-primary">Tampilkan Data</button>
+      <a href="#" class="btn btn-outline-primary" style = "position:relative; left:10px;">Cetak</a>
+      <br><br>
       <table id="table_data" class="table table-responsive table-hover">
         <thead>
-          <div class="form-group">
-            <label>Bulan/Tahun</label>
-            <input name="bulan" type="month" class= "form-control" style="width: 20%;"> 
-          </div>
-          <div class="alert alert-info">Menampilkan Data Gaji Pada Bulan <b>{{$bulan}}</b> Tahun <b>{{$tahun}}</b></div>
-        <br>
-        <button type="submit" class="btn btn-outline-primary">Tampilkan Data</button>
-        <a href="#" class="btn btn-outline-primary" style = "position:relative; left:10px;">Cetak</a>
-        <br><br>
           <tr>
             <th>No</th>
             <th>NIK</th>

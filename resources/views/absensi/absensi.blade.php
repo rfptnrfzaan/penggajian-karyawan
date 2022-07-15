@@ -10,7 +10,7 @@
     </div>
 </section>
 <div class="card">
-    <form action="{{ url("absensi/lihat"); }}" method="post">
+    <form id="form" method="post">
     <div class="card-body">
         @csrf
         <div class="row">
@@ -21,11 +21,33 @@
                 </div>
             </div>
             <div class="col">
-                <button type="submit" class="btn btn-outline-primary">Tampilkan Data</button>
-                <a href="{{ url('absensi/create') }}" class="btn btn-outline-primary">Input Kehadiran</a>
+                <button id="lihat" class="btn btn-outline-primary">Tampilkan Data</button>
+                <button id="input" class="btn btn-outline-primary">Input Kehadiran</button>
             </div>
         </div>
 
     </form>
 </div>
+@endsection
+
+@section('script')
+<script>
+
+    $(document).ready(function () {
+
+        $("#lihat").click(function () {
+            var form = $('#form');
+            form.attr('action', '{{ url("absensi/lihat") }}');
+            form.submit();
+        });
+
+        $("#input").click(function () {
+            var form = $('#form');
+            form.attr('action', '{{ url("absensi/tambah") }}');
+            form.submit();
+        });
+
+    });
+
+</script>
 @endsection
