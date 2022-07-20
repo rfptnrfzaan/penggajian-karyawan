@@ -134,6 +134,12 @@
                         <input type="text" class="form-control" readonly="">
                         </div>
                     </div>
+                    <div class="form-group row">
+                        <label class="col-4 col-form-label text-right">Penghasilan Bruto</label>
+                        <div class="col-8">
+                        <input type="text" name="" class="form-control" readonly="" value="{!! 'Rp. '.number_format( $gaji['bruto'], 0, ',', '.').',00' !!}">
+                        </div>
+                    </div>
                 </div>
             </div>
 

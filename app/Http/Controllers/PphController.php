@@ -27,12 +27,12 @@ class PphController extends Controller
 
     public function detail($tahun, $bulan, $id_karyawan){
         $karyawan = Karyawan::find($id_karyawan);
-        $gaji = GajiCalculator::CalculateGaji($karyawan, $bulan, $tahun);
+        $gaji = GajiCalculator::CalculateGaji($karyawan, $tahun, $bulan);
         $netto = TaxCalculator::CalculateNettoWithBiayaJabatan($gaji['netto']);
         $ptkp =  TaxCalculator::CalculatePTKP($karyawan);
         $pkp = TaxCalculator::CalculatePKP($netto['netto_year'], $ptkp['ptkp']);
         $pph21 = $pkp['tax_month'];
-        $gajiterima = $netto['netto_month']-$pph21;
+        $gajiterima = $gaji['netto']-$pph21;
         $biaya = TaxCalculator::CalculateBiayaJabatan($gaji['netto']);
 
         $date = Carbon::createFromDate($tahun, $bulan, 1);

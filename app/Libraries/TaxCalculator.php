@@ -33,7 +33,7 @@ class TaxCalculator {
     }
 
     public static function CalculateBiayaJabatan(int $amount){
-        $biaya = 5 / 100 * $amount;
+        $biaya = 0.05 * $amount;
         return ($biaya > 500000) ? 500000 : $biaya;
     }
 

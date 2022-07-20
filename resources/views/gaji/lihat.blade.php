@@ -49,7 +49,7 @@
           @endphp
           @foreach ($karyawan as $data)
           @php
-              $gaji= App\Libraries\GajiCalculator::CalculateGaji($data, $bulan, $tahun);
+              $gaji= App\Libraries\GajiCalculator::CalculateGaji($data, $tahun, $bulan);
           @endphp
           <tr>
             <td>{{ $n++ }}</td>
